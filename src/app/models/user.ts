@@ -12,3 +12,6 @@ export class User {
     //country: string;
     //phone_number: string;
 }
+
+
+// NOT USED yet but maybe later for something

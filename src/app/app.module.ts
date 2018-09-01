@@ -10,6 +10,7 @@ import { ContactInfoComponent } from './contact-info/contact-info.component';
 import { HomeScreenComponent } from './home-screen/home-screen.component';
 import {MatButtonModule, MatInputModule} from '@angular/material';
 import { UserScreenComponent } from './user-screen/user-screen.component';
+import { ManagerScreenComponent } from './manager-screen/manager-screen.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UserScreenComponent } from './user-screen/user-screen.component';
     GamesComponent,
     ContactInfoComponent,
     HomeScreenComponent,
-    UserScreenComponent
+    UserScreenComponent,
+    ManagerScreenComponent
   ],
   imports: [
     BrowserModule,

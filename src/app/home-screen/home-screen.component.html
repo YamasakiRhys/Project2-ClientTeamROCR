@@ -1,20 +1,22 @@
 <!-- Login modal start -->
 <div id="lodmod" class="modal">
-    <div id="myform" class="modal-content animate" onsubmit="if(!login()){event.preventDefault()}">
+    <div id="myform" class="modal-content animate">
         <div class="imgcontainer">
-            <span onclick="document.getElementById('lodmod').style.display='none'; cancle()" class="close" title="Close Modal">&times;</span>
+            <span onclick="document.getElementById('lodmod').style.display='none'" class="close" title="Close Modal">&times;</span>
         </div>
         <div class="container">
             <label>
                 <b>Username</b>
             </label>
             <input type="text" placeholder="Enter Username" #username id="usrbox" name="uname">
+                                                    <!-- #username acts similar to the id attribute -->
             <label>
                 <b>Password</b>
             </label>
             <input type="password" placeholder="Enter Password" #password id="passbox" name="psw">
-            <!--pattern sets the requirnment of at least one number, lowercase letter, and uppercase letter and the minimum length of 8-->
-            <button type="submit" class="logbutton" (click)="login(username.value, password.value)">Login</button>
+                                                    <!-- #password acts similar to the id attribute -->
+            <button type="submit" id="logbutton" (click)="login(username.value, password.value)">Login</button>
+                        <!-- (click) same as onClick attribute -->    <!-- uses the #attributes to get the values-->
         </div>
     </div>
 </div>

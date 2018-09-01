@@ -13,3 +13,5 @@ export class GamesComponent implements OnInit {
   }
 
 }
+
+// NOT USED
