@@ -1,0 +1,34 @@
+<!-- Login modal start -->
+<div id="lodmod" class="modal">
+    <div id="myform" class="modal-content animate" onsubmit="if(!login()){event.preventDefault()}">
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('lodmod').style.display='none'; cancle()" class="close" title="Close Modal">&times;</span>
+        </div>
+        <div class="container">
+            <label>
+                <b>Username</b>
+            </label>
+            <input type="text" placeholder="Enter Username" #username id="usrbox" name="uname">
+            <label>
+                <b>Password</b>
+            </label>
+            <input type="password" placeholder="Enter Password" #password id="passbox" name="psw">
+            <!--pattern sets the requirnment of at least one number, lowercase letter, and uppercase letter and the minimum length of 8-->
+            <button type="submit" class="logbutton" (click)="login(username.value, password.value)">Login</button>
+        </div>
+    </div>
+</div>
+<!-- Login modal end -->
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<app-games></app-games>
+<div id="footerDiv">
+    <h1>About us</h1>
+    <h3>insert information here</h3>
+    <app-contact-info></app-contact-info>
+</div>

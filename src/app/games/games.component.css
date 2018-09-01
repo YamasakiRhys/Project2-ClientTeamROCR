@@ -1,0 +1,23 @@
+table{
+    text-align: center;
+}
+div{
+    background-color: rgba(154, 196, 216, 0.815);
+    height: 550px;
+    width: 90%;
+    padding: 50px;
+    color: rgb(0, 0, 0);
+}
+#divRight{
+    position: absolute;
+    right: 0;
+}
+td{
+    margin: 50px;
+}
+th{
+    width: 400px;
+    padding-bottom: 50px;
+    font-size: 25px;
+    text-align: center;
+}
