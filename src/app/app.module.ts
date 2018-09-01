@@ -7,10 +7,10 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GamesComponent } from './games/games.component';
 import { ContactInfoComponent } from './contact-info/contact-info.component';
-import { HomeScreenComponent } from './home-screen/home-screen.component';
+import { HomeScreenComponent } from './pages/home-screen/home-screen.component';
 import {MatButtonModule, MatInputModule} from '@angular/material';
-import { UserScreenComponent } from './user-screen/user-screen.component';
-import { ManagerScreenComponent } from './manager-screen/manager-screen.component';
+import { UserScreenComponent } from './pages/user-screen/user-screen.component';
+import { ManagerScreenComponent } from './pages/manager-screen/manager-screen.component';
 
 @NgModule({
   declarations: [

@@ -13,6 +13,7 @@ import { User } from 'src/app/models/user';
 //place to put functions and variables. not actually callable
 export class HomeScreenComponent implements OnInit {
 
+  user: User;
   //constructor for router
   constructor(private router: Router) { }
 
@@ -36,9 +37,9 @@ export class HomeScreenComponent implements OnInit {
       if (user.username == this.users[i].username && user.password == this.users[i].password) {
         //checks roles to redirect to correct page (1 is manager 2 is user)
         if (this.users[i].role == 2){
-          this.router.navigate(['/logedin/user']);
+          this.router.navigate(['/loggedin/user']);
         } else {
-          this.router.navigate(['/logedin/manager']);
+          this.router.navigate(['/loggedin/manager']);
         }
         return;
       }
