@@ -1,7 +1,7 @@
 //TS file for just the home page
-
+import { LoginService } from '../../login.service';
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { RouterModule, ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -14,38 +14,25 @@ import { User } from 'src/app/models/user';
 export class HomeScreenComponent implements OnInit {
 
   user: User;
-  //constructor for router
-  constructor(private router: Router) { }
+  err: string;
 
-  //Hard coded user data for testing
-  users = [{ username: "uname", password: "pass", role: 1 },
-  { username: "testing", password: "test", role: 2 },
-  { username: "username", password: "password", role: 2 }];
+  //constructor for router
+  constructor(private login: LoginService) { }
 
   //function called when the modal login button is clicked
-  login(username, password) {
-    console.log(username + password);
-    //create a dummy user from given login info
-    const user = {
-      username: username,
-      password: password
-    };
-    console.log(user);
-    console.log(this.users);
-    //login validation
-    for (var i = 0; i < this.users.length; i++) {
-      if (user.username == this.users[i].username && user.password == this.users[i].password) {
-        //checks roles to redirect to correct page (1 is manager 2 is user)
-        if (this.users[i].role == 2){
-          this.router.navigate(['/loggedin/user']);
-        } else {
-          this.router.navigate(['/loggedin/manager']);
-        }
-        return;
+  userLogin(username, password): void {
+    //this.login.getUser is the getUser function in the login.service.ts
+    this.user = this.login.getUser(username, password)
+      // if login was successful
+      if (this.user) {
+        // call the service function that changes the page
+        this.login.changePage(this.user);
+      } else {
+        this.err = 'You have input an incorrect email/password combination';
       }
-    }
-    console.log("failed login");
   }
+
+
 
   ngOnInit() {
   }
