@@ -11,8 +11,6 @@ export class LoggedInService {
   constructor(private router: Router) { }
 
   setLoggedInUser(us) {
-    console.log(LoggedInService.user);
-    console.log(us);
     LoggedInService.user = us;
   }
 
