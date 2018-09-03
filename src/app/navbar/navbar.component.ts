@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoggedInService } from '../logged-in.service';
 import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
+import { LoggedInService } from '../logged-in.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   user: User;
-  constructor(private logged: LoggedInService, private router: Router) { }
+  constructor(private router: Router, private logged: LoggedInService) { }
 
   register(): void{
     this.router.navigate(['/register']);
