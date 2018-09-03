@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoggedInService } from '../logged-in.service';
 import { User } from 'src/app/models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,9 +11,15 @@ import { User } from 'src/app/models/user';
 export class NavbarComponent implements OnInit {
 
   user: User;
-  constructor(private logged: LoggedInService) { }
+  constructor(private logged: LoggedInService, private router: Router) { }
 
-  modalOn = false;
+  register(): void{
+    this.router.navigate(['/register']);
+  }
+
+  backHome(): void{
+    this.router.navigate(['/']);
+  }
 
   ngOnInit() {
   }

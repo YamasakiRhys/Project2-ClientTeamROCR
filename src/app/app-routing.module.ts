@@ -1,6 +1,7 @@
 import { HomeScreenComponent } from './pages/home-screen/home-screen.component';
 import { UserScreenComponent } from './pages/user-screen/user-screen.component';
 import { ManagerScreenComponent } from './pages/manager-screen/manager-screen.component';
+import { RegisterScreenComponent } from './pages/register-screen/register-screen.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -8,7 +9,8 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: '', component: HomeScreenComponent}, //This is the default. used when no other paths are found
   { path: 'loggedin/user', component: UserScreenComponent},
-  { path: 'loggedin/manager', component: ManagerScreenComponent}
+  { path: 'loggedin/manager', component: ManagerScreenComponent},
+  { path: 'register', component: RegisterScreenComponent}
 ];
 
 @NgModule({

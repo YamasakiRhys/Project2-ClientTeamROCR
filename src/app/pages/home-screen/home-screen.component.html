@@ -26,11 +26,12 @@
 <br>
 <br>
 <br>
+<h1 id="title">Game ROCR</h1>
 <br>
 <br>
 <app-games></app-games>
 <div id="footerDiv">
     <h1>About us</h1>
     <h3>insert information here</h3>
-    <app-contact-info></app-contact-info>
+    <app-contact-info *ngIf='logged.getLoggedInUser().role===9'></app-contact-info>
 </div>

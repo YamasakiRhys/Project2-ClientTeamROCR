@@ -11,6 +11,7 @@ import { HomeScreenComponent } from './pages/home-screen/home-screen.component';
 import {MatButtonModule, MatInputModule} from '@angular/material';
 import { UserScreenComponent } from './pages/user-screen/user-screen.component';
 import { ManagerScreenComponent } from './pages/manager-screen/manager-screen.component';
+import { RegisterScreenComponent } from './pages/register-screen/register-screen.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ManagerScreenComponent } from './pages/manager-screen/manager-screen.co
     ContactInfoComponent,
     HomeScreenComponent,
     UserScreenComponent,
-    ManagerScreenComponent
+    ManagerScreenComponent,
+    RegisterScreenComponent
   ],
   imports: [
     BrowserModule,

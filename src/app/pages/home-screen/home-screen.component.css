@@ -1,12 +1,27 @@
+#title{
+    color: white;
+    font-size: 70px;
+    text-align: center;
+    text-shadow: 5px 5px red, 10px 10px green, 15px 15px blue;
+    margin: 50px;
+}
+
 #footerDiv{
     position: absolute;
-    top: 1400px;
+    top: 1750px;
     height: 700px;
     width:100%;
     padding: 100px;
     text-align: center;
     color: rgb(163, 163, 163);
     background-color: rgb(32, 32, 32);
+}
+
+#logbutton{
+    height:50px;
+    width: 150px;
+    background: linear-gradient(rgb(155, 188, 238), rgb(113, 139, 196));
+    border: 2px solid rgb(33, 45, 77);
 }
 
 input {
