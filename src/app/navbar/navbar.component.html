@@ -1,6 +1,7 @@
 <ul>
-  <li>Make a Request</li>
-  <li>Account settings</li>
+  <li *ngIf='logged.getLoggedInUser().role===2'>Make a Request</li>
+  <li *ngIf='logged.getLoggedInUser().role===2'>Account settings</li>
   <li>Contact</li>
-  <li style="float:right" onclick="document.getElementById('lodmod').style.display='block'">Login</li>
+  <li style="float:right" *ngIf='logged.getLoggedInUser().role===9' onclick="document.getElementById('lodmod').style.display='block'">Login</li>
+  <li style="float:right" *ngIf='logged.getLoggedInUser().role!==9' (click)='logged.logout()'>Logout</li>
 </ul>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { LoggedInService } from '../logged-in.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  user: User;
+  constructor(private logged: LoggedInService) { }
+
+  modalOn = false;
 
   ngOnInit() {
   }
+
+  
 
 }
 
