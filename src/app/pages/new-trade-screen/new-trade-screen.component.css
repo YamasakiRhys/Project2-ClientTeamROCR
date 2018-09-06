@@ -1,17 +1,17 @@
-#userInfo{
+#tradeInfo{
     background-color: rgb(154, 196, 216);
     padding:60px;
     margin:90px;
     text-align: center;
 }
-#userInfo h1{
+#tradeInfo h1{
     font-size: 50px;
     margin-bottom: 60px;
 }
-#userInfo h2{
+#tradeInfo h2{
     margin:35px;
 }
-#userInfo input{
+#tradeInfo input{
     height:40px;
     width: 500px;
     margin-bottom: 15px;

@@ -21,6 +21,10 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  newTrade(): void{
+    this.router.navigate(['/trade']);
+  }
+
   ngOnInit() {
   }
 
