@@ -12,13 +12,7 @@ export class RecentTradesComponent implements OnInit {
 
   constructor(private tradeServ: TradeService, private router: Router, private logged: LoggedInService) { }
 
-  /* makeTrade(rTitle, rGenre, rPlot, rImage, rGenrePref) {
-    this.tradeServ.trades.push({game_title: rTitle, genre: rGenre, plot: rPlot, img: rImage, user_name: this.logged.getLoggedInUser().username, genrePref: rGenrePref, status: 1});
-    this.router.navigate(['/loggedin/user']);
-  } */
-
   ngOnInit() {
-    //console.log(this.tradeServ.trades[i])
   }
 
 }

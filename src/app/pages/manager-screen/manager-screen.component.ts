@@ -13,5 +13,3 @@ export class ManagerScreenComponent implements OnInit {
   }
 
 }
-
-// NOT USED

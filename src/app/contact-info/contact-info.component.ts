@@ -12,5 +12,3 @@ export class ContactInfoComponent implements OnInit {
   ngOnInit() {
   }
 }
-
-// NOT USED
