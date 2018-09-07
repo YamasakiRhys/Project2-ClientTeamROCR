@@ -1,0 +1,38 @@
+.gameinfo{
+    background-color: rgba(154, 196, 216, 0.815);
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.7);
+    margin:80px;
+    margin-left: 250px;
+    height: 650px;
+    width: 60%;
+    padding: 50px;
+    color: rgb(0, 0, 0);
+}
+#recentTitle{
+    color: white;
+    text-align: center;
+    text-shadow: 5px 5px black;
+    font-size: 50px;
+    margin: 60px;
+}
+#gameTitle{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+img{
+    max-width:400px;
+    max-height:350px;
+    min-width:250px;
+    min-height:250px;
+    position:absolute;
+}
+.gameimg{
+    float: right;
+    margin: 20px;
+    right: 400px;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.7);
+}
+.down{
+    float: bottom;
+}

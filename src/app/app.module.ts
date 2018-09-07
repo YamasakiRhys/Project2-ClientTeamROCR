@@ -12,6 +12,8 @@ import {MatButtonModule, MatInputModule} from '@angular/material';
 import { UserScreenComponent } from './pages/user-screen/user-screen.component';
 import { ManagerScreenComponent } from './pages/manager-screen/manager-screen.component';
 import { RegisterScreenComponent } from './pages/register-screen/register-screen.component';
+import { RecentTradesComponent } from './recent-trades/recent-trades.component';
+import { NewTradeScreenComponent } from './pages/new-trade-screen/new-trade-screen.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { RegisterScreenComponent } from './pages/register-screen/register-screen
     HomeScreenComponent,
     UserScreenComponent,
     ManagerScreenComponent,
-    RegisterScreenComponent
+    RegisterScreenComponent,
+    RecentTradesComponent,
+    NewTradeScreenComponent
   ],
   imports: [
     BrowserModule,

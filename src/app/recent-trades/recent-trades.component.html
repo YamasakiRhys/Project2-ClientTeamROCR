@@ -1,0 +1,21 @@
+<h1 id="recentTitle">Recently opened Trades</h1>
+<table>
+    <tr *ngFor='let trade of this.tradeServ.trades'>
+        <td>
+            <div class="gameinfo">
+                <h1 id="gameTitle">{{trade.game_title}}</h1>
+                <h3>Genre: {{trade.genre}}</h3>
+                <br>
+                <h4>Plot: {{trade.plot}}</h4>
+                <br>
+                <h6 class="down">Trade created by {{trade.user_name}}</h6>
+                <h6 class="down">Prefered trade genre: {{trade.genrePref}}</h6>
+                <img src={{trade.img}} class="gameimg">
+            </div>
+        </td>
+    </tr>
+</table>
+<br>
+<br>
+<br>
+<br>
