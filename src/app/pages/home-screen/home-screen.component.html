@@ -1,0 +1,37 @@
+<!-- Login modal start -->
+<div id="lodmod" class="modal">
+    <div id="myform" class="modal-content animate">
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('lodmod').style.display='none'" class="close" title="Close Modal">&times;</span>
+        </div>
+        <div class="container">
+            <label>
+                <b>Username</b>
+            </label>
+            <input type="text" placeholder="Enter Username" #username id="usrbox" name="uname">
+                                                    <!-- #username acts similar to the id attribute -->
+            <label>
+                <b>Password</b>
+            </label>
+            <input type="password" placeholder="Enter Password" #password id="passbox" name="psw">
+                                                    <!-- #password acts similar to the id attribute -->
+            <button type="submit" id="logbutton" (click)="userLogin(username.value, password.value)">Login</button>
+                        <!-- (click) same as onClick attribute -->    <!-- uses the #attributes to get the values -->
+        </div>
+    </div>
+</div>
+<!-- Login modal end -->
+
+<br>
+<br>
+<br>
+<br>
+<h1 id="title">Game ROCR</h1>
+<br>
+<br>
+<app-games></app-games>
+<div id="footerDiv">
+    <h1>About us</h1>
+    <h3>insert information here</h3>
+    <app-contact-info *ngIf='logged.getLoggedInUser().role===9'></app-contact-info>
+</div>
