@@ -91,7 +91,7 @@ span.psw {
 .fade-box {
     animation: input-entry 1s ease-in; 
   } 
-/*
+
 @keyframes input-entry {
     0% {
       opacity: 0;
@@ -130,4 +130,4 @@ span.psw {
         height: 283px; 
         width: 60%;
       }
-}*/
+}
