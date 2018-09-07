@@ -15,7 +15,7 @@ export class NewTradeScreenComponent implements OnInit {
 
 
   makeTrade(rTitle, rGenre, rPlot, rImage, rGenrePref) {
-    this.tradeServ.trades.push({game_title: rTitle, genre: rGenre, plot: rPlot, img: rImage, user_name: this.logged.getLoggedInUser().username, genrePref: rGenrePref, status: 1});
+    this.tradeServ.trades.push({ user_id: this.logged.getLoggedInUser().user_id, game_title: rTitle, genre: rGenre, plot: rPlot, img: rImage, genrePref: rGenrePref, status: 1});
     this.router.navigate(['/loggedin/user']);
   }
 
