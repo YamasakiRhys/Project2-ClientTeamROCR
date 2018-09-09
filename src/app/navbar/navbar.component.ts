@@ -33,10 +33,14 @@ export class NavbarComponent implements OnInit {
   }
 
   newTrade(): void{
-    this.router.navigate(['/trade']);
+    this.router.navigate(['/loggedin/user/trade']);
   }
 
   ngOnInit() {
     this.genres = this.tradeServ.getGenres();
+  }
+
+  getUsers(){
+    this.router.navigate(['/loggedin/manager/userlist']);
   }
 }

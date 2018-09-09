@@ -90,7 +90,17 @@ span.psw {
 
 .fade-box {
     animation: input-entry 1s ease-in; 
-  } 
+}
+
+#homeLine{
+    -webkit-animation: pulse 2s linear infinite;
+}
+
+@-webkit-keyframes pulse {
+    0% { box-shadow:0 0 15px #ffffff, inset 0 0 8px #ffffff; }
+    50% { box-shadow:0 0 50px #ffffff, inset 0 0 50px #ffffff; }
+    100% { box-shadow:0 0 15px #ffffff, inset 0 0 8px #ffffff; }
+}
 
 @keyframes input-entry {
     0% {
@@ -130,4 +140,9 @@ span.psw {
         height: 283px; 
         width: 60%;
       }
+}
+
+svg{
+    text-align: left;
+    position: absolute;
 }

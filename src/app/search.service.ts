@@ -10,10 +10,6 @@ export class SearchService {
   constructor() { }
 
   SearchFilter(trades) {
-    console.log(this.selectedGenre);
-    if (this.selectedGenre == "none"){
-      return trades;
-    }
     var filteredTrades = [];
     for (var i = 0; i < trades.length; i++) {
       if(trades[i].genre != this.selectedGenre){
@@ -22,6 +18,9 @@ export class SearchService {
       filteredTrades.push(trades[i]);
     }
     console.log(filteredTrades);
+    if(filteredTrades.length == 0){
+      return trades;
+    }
     return filteredTrades;
   }
 }
