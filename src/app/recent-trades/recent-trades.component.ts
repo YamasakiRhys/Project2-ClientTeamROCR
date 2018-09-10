@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {TradeService} from '../trade.service'
 import { Router } from '@angular/router';
 import { LoggedInService } from '../logged-in.service';
+import { LoginService } from '../login.service';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-recent-trades',
@@ -10,9 +12,15 @@ import { LoggedInService } from '../logged-in.service';
 })
 export class RecentTradesComponent implements OnInit {
 
-  constructor(private tradeServ: TradeService, private router: Router, private logged: LoggedInService) { }
+  selectedTrades = [];
 
-  ngOnInit() {
+  constructor(private tradeServ: TradeService, private router: Router, private logged: LoggedInService, private login: LoginService, private search: SearchService) { }
+
+  getUsername(id){
+    return this.login.getUsername(id);
   }
 
+  ngOnInit() {
+    this.selectedTrades = this.search.SearchFilter(this.tradeServ.trades);
+  }
 }

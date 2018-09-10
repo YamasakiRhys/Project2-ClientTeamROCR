@@ -7,14 +7,16 @@ import { Router } from '@angular/router';
 })
 export class LoginService {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
-  users = [{ username: "uname", password: "pass", role: 1 },
-  { username: "testing", password: "test", role: 2 },
-  { username: "username", password: "password", role: 2 }];
+  users = [{ user_id: 1, username: "uname", password: "pass", role: 1 },
+  { user_id: 2, username: "Deson", password: "louihao", role: 2 },
+  { user_id: 3, username: "Touvan", password: "louihao", role: 2 },
+  { user_id: 4, username: "Kukuy", password: "kan", role: 2 }];
 
   getUser(username, password) {
     const user = {
+      user_id: null,
       role: null,
       username: username,
       password: password
@@ -22,11 +24,20 @@ export class LoginService {
     for (var i = 0; i < this.users.length; i++) {
       if (user.username == this.users[i].username && user.password == this.users[i].password) {
         user.role = this.users[i].role;
+        user.user_id = this.users[i].user_id;
         return user;
       }
     }
   }
-  //change to the correct page based on the role
+
+  getUsername(id){
+    for(var i = 0; i < this.users.length; i++){
+      if(this.users[i].user_id == id){
+        return this.users[i].username;
+      }
+    }
+  }
+
   changePage(user){
     if (user.role == 2) {
       this.router.navigate(['/loggedin/user']);

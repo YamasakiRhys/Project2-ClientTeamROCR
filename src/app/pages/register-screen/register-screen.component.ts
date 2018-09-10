@@ -21,7 +21,8 @@ export class RegisterScreenComponent implements OnInit {
       }
     }
 
-    this.login.users.push({ username: uname, password: pass, role: 2});
+    this.login.users.push({user_id: this.login.users.length + 1, username: uname, password: pass, role: 2});
+    console.log(this.login.users);
     this.router.navigate(['']);
   }
 

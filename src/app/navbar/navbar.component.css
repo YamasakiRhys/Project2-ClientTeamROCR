@@ -27,3 +27,12 @@ li:hover {
 .active {
     background-color: rgb(76, 83, 175);
 }
+#genreSelect{
+    margin-top: 10px;
+    -moz-border-radius: 15px;
+    border-radius: 8px;
+    background-color: rgb(2, 35, 61);
+    color: white;
+    border:solid 3px rgb(110, 190, 255);
+    padding:5px;
+}

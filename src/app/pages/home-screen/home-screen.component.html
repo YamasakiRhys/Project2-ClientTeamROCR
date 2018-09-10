@@ -6,11 +6,13 @@
         </div>
         <div class="container">
             <h5 class="fade-box">Username</h5>
-            <input type="text" placeholder="Enter Username" #username id="usrbox" class="fade-box" name="uname">
-                                                    <!-- #username acts similar to the id attribute -->
+            <mat-form-field class="fade-box">
+                <input matInput type="text" placeholder="Enter Username" #username id="usrbox" name="uname">
+            </mat-form-field>                                       <!-- #username acts similar to the id attribute -->
             <h5 class="fade-box">Password</h5>
-            <input type="password" placeholder="Enter Password" #password id="passbox" class="fade-box" name="psw">
-                                                    <!-- #password acts similar to the id attribute -->
+            <mat-form-field class="fade-box">
+                <input matInput type="password" placeholder="Enter Password" #password id="passbox" name="psw">
+            </mat-form-field>                                   <!-- #password acts similar to the id attribute -->
             <button type="submit" id="logbutton" class="fade-box" (click)="userLogin(username.value, password.value)">Login</button>
                         <!-- (click) same as onClick attribute -->    <!-- uses the #attributes to get the values -->
         </div>

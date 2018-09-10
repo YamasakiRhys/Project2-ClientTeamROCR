@@ -24,13 +24,13 @@
     border: 2px solid rgb(33, 45, 77);
 }
 
-input {
+mat-form-field {
+    color: black;
     width: 60%;
-    padding: 12px 20px;
     margin: 15px;
-    display: inline-block;
-    border: 1px solid darkblue;
-    box-sizing: border-box;
+    font-family: '8BITWONDERNominal';
+    font-weight: normal;
+    font-style: normal;
 }
 
 .imgcontainer {

@@ -3,6 +3,10 @@
   <li *ngIf='logged.getLoggedInUser().role===2' onclick="document.getElementById('delmod').style.display='block'">Deactivate account</li>
   <li style="float:right" *ngIf='logged.getLoggedInUser().role===9' onclick="document.getElementById('lodmod').style.display='block'">Login</li>
   <li style="float:right" *ngIf='logged.getLoggedInUser().role===9' (click)='register()'>Register</li>
+  <select *ngIf='logged.getLoggedInUser().role!<=2' id="genreSelect" (change)="selectChangeHandler($event)">
+    <option selected value="none">select a genre</option>
+    <option *ngFor='let genre of this.genres' value='{{genre}}'>{{genre}}</option>
+  </select>
   <li style="float:right" *ngIf='logged.getLoggedInUser().role!<=2' (click)='logged.logout()'>Logout</li>
   <li style="float:right" *ngIf='logged.getLoggedInUser().role===10' (click)='backHome()'>Back</li>
 </ul>
