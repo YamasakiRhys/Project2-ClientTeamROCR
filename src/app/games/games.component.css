@@ -26,7 +26,7 @@ img{
     max-height:600px;
     min-width:100px;
     min-height:200px;
-    -webkit-animation: pulse 2s linear 1s infinite;
+    -webkit-animation: pulse 2s linear infinite;
 }
 
 @-webkit-keyframes pulse {

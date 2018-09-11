@@ -1,7 +1,7 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 body{
-    background-image: url("https://i.ytimg.com/vi/GTfUSllTpZ4/maxresdefault.jpg");
+    background-image: url("https://cdn.dribbble.com/users/1083431/screenshots/3269881/gif.gif");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -9,4 +9,5 @@ body{
     font-family: '8BITWONDERNominal';
     font-weight: normal;
     font-style: normal;
+    overflow-x:hidden;
 }

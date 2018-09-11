@@ -13,7 +13,8 @@ import { ManagerScreenComponent } from './pages/manager-screen/manager-screen.co
 import { RegisterScreenComponent } from './pages/register-screen/register-screen.component';
 import { RecentTradesComponent } from './recent-trades/recent-trades.component';
 import { NewTradeScreenComponent } from './pages/new-trade-screen/new-trade-screen.component';
-import { UniquePipePipe } from './unique-pipe.pipe';
+import { UsersListScreenComponent } from './pages/users-list-screen/users-list-screen.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { UniquePipePipe } from './unique-pipe.pipe';
     RegisterScreenComponent,
     RecentTradesComponent,
     NewTradeScreenComponent,
-    UniquePipePipe
+    UsersListScreenComponent
   ],
   imports: [
     BrowserModule,

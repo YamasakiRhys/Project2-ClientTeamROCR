@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../login.service';
+import { LoggedInService } from '../../logged-in.service';
 
 @Component({
   selector: 'app-manager-screen',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManagerScreenComponent implements OnInit {
 
-  constructor() { }
+  constructor(private log: LoginService,private logged: LoggedInService) { }
 
   ngOnInit() {
   }

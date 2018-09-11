@@ -1,0 +1,32 @@
+<br>
+<br>
+<br>
+<div id="userInfo">
+    <h1 id="userTitle">Users</h1>
+    <svg ng-if='first' height="90px" width="1525" id="lines">
+        <defs>
+            <filter id="f1">
+                <feOffset result="offOut" in="SourceGraphic" dx="0" dy="0" />
+                <feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
+                <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+            </filter>
+        </defs>
+        <path d="M 400 45 l 100 20 l 220 -20 l -220 -20z 
+                 M 1119.2 45 l -100 20 l -220 -20 l 220 -20 z" 
+        stroke="black" stroke-width="4" fill="none" />
+        <path d="M 445 45 l 54.6 12 l 54.6 -12 l -54.6 -12 z 
+                 M 720 45 l 39.6 12 l 39.6 -12 l -39.6 -12 z
+                 M 1074.2 45 l -54.6 12 l -54.6 -12 l 54.6 -12 z"
+        stroke="black" stroke-width="4" fill="rgb(154, 181, 216)" />
+    </svg>
+    <table>
+        <tr *ngFor='let user of this.users'>
+            <td>
+                <div class="infoSection">
+                    <h3>{{user.username}}</h3>
+                    <h4>{{user.email}}</h4>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
