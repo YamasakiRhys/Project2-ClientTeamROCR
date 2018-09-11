@@ -1,3 +1,14 @@
+<div id="offermod" class="modal">
+    <div id="myform" class="modal-content animate">
+        <div>
+            <span onclick="document.getElementById('offermod').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <h3>What kind of offer will you give?</h3>
+            <button>Use existing trade</button>
+            <button>Make new trade</button>
+        </div>
+    </div>
+</div>
+
 <h1 id="recentTitle">Recently opened Trades</h1>
 <table>
     <tr *ngFor='let trade of selectedTrades'>
@@ -10,6 +21,7 @@
                 <br>
                 <h6>Trade created by {{getUsername(trade.user_id)}}</h6>
                 <h6 id="down">Prefered trade genre: {{trade.genrePref}}</h6>
+                <button id="offerButton" onclick="document.getElementById('offermod').style.display='block'" (click)="makeOffer(trade.trade_id)">Make Offer</button>
                 <img src={{trade.img}} class="gameimg">
             </div>
         </td>

@@ -9,6 +9,7 @@ export class SearchService {
 
   constructor() { }
 
+  //Filters trades to only get the trades with the selected genre
   SearchFilter(trades) {
     var filteredTrades = [];
     for (var i = 0; i < trades.length; i++) {
@@ -17,7 +18,6 @@ export class SearchService {
       }
       filteredTrades.push(trades[i]);
     }
-    console.log(filteredTrades);
     if(filteredTrades.length == 0){
       return trades;
     }

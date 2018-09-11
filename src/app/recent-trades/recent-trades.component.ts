@@ -20,6 +20,10 @@ export class RecentTradesComponent implements OnInit {
     return this.login.getUsername(id);
   }
 
+  makeOffer(trade_id){
+    console.log(trade_id);
+  }
+
   ngOnInit() {
     this.selectedTrades = this.search.SearchFilter(this.tradeServ.trades);
   }

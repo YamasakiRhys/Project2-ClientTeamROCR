@@ -26,4 +26,11 @@ img{
     max-height:600px;
     min-width:100px;
     min-height:200px;
+    -webkit-animation: pulse 2s linear infinite;
+}
+
+@-webkit-keyframes pulse {
+    0% { box-shadow:0 0 15px #ffffff, inset 0 0 8px #ffffff; }
+    50% { box-shadow:0 0 50px #ffffff, inset 0 0 50px #ffffff; }
+    100% { box-shadow:0 0 15px #ffffff, inset 0 0 8px #ffffff; }
 }
