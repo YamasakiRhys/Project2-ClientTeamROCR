@@ -48,11 +48,12 @@
     right: 1230px;
     bottom: 80px;
 }
-#logbutton{
-    height: 50px;
-    width: 150px;
+.offermodbutton{
+    height: 80px;
+    width: 200px;
     background: linear-gradient(rgb(155, 188, 238), rgb(113, 139, 196));
     border: 2px solid rgb(33, 45, 77);
+    margin:50px;
 }
 
 mat-form-field {
@@ -73,6 +74,7 @@ mat-form-field {
     height: 100%;
     background-color: rgba(0,0,0,0.4);
     padding-top: 60px;
+    text-align: center;
 }
 
 .modal-content {

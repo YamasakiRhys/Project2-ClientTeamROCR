@@ -1,17 +1,7 @@
-<div id="offermod" class="modal">
-    <div id="myform" class="modal-content animate">
-        <div>
-            <span onclick="document.getElementById('offermod').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <h3>What kind of offer will you give?</h3>
-            <button class="offermodbutton">Use existing trade</button>
-            <button class="offermodbutton">Make new trade</button>
-        </div>
-    </div>
-</div>
-
-<h1 id="recentTitle">Recently opened Trades</h1>
+<br>
+<h1 id="myTrades">Your Trades</h1>
 <table>
-    <tr *ngFor='let trade of selectedTrades'>
+    <tr *ngFor='let trade of myTrades'>
         <td>
             <div class="gameinfo">
                 <h1 id="gameTitle">{{trade.game_title}}</h1>
@@ -21,11 +11,11 @@
                 <br>
                 <h6>Trade created by {{getUsername(trade.user_id)}}</h6>
                 <h6 id="down">Prefered trade genre: {{trade.genrePref}}</h6>
-                <button id="offerButton" onclick="document.getElementById('offermod').style.display='block'" (click)="makeOffer(trade.trade_id)">Make Offer</button>
+                <button (click)="deleteTrade(trade.trade_id)" id="deleteButton">Remove Trade</button>
                 <img src={{trade.img}} class="gameimg">
             </div>
         </td>
-        <svg ng-if='first' height="90px" width="1500" id="lines">
+        <svg ng-if='first' height="90px" width="1500" class="lines">
             <defs>
                 <filter id="f1">
                     <feOffset result="offOut" in="SourceGraphic" dx="0" dy="0" />
@@ -39,8 +29,22 @@
             <path d="M 650 45 l 110 40 l 110 -40 l -110 -40z" stroke="rgba(183, 211, 218, 0.664)" stroke-width="5" fill="rgba(255, 255, 255, 0.8)" filter="url(#f1)"/>
         </svg>
     </tr>
+
+
+    <div *ngIf='this.noTrades' class="gameinfo">
+      <h1>You have no trades D:</h1>
+      <svg ng-if='first' height="90px" width="1500" class="lines">
+        <defs>
+            <filter id="f1">
+                <feOffset result="offOut" in="SourceGraphic" dx="0" dy="0" />
+                <feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
+                <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+            </filter>
+        </defs>
+        <path d="M 100 45 l 300 40 q 309.6 -50 719.2 0 l 300 -40 l -300 -40 q -309.6 50 -719.2 0 l -300 40" stroke="rgba(183, 211, 218, 0.664)" stroke-width="4" fill="none" />
+        <path d="M 100 45 l 14.6 31.6 l 185 -31.6 l -185 -31.6z M 1419.2 45 l -14.6 31.6 l -185 -31.6 l 185 -31.6z" stroke="rgba(183, 211, 218, 0.664)" stroke-width="0" fill="rgba(255, 255, 255, 0.4"/>
+        <path d="M 300 45 l 100 25 l 250 -25 l -250 -25z M 1219.2 45 l -100 25 l -250 -25 l 250 -25z" stroke="rgba(183, 211, 218, 0.664)" stroke-width="0" fill="rgba(255, 255, 255, 0.65" />
+        <path d="M 650 45 l 110 40 l 110 -40 l -110 -40z" stroke="rgba(183, 211, 218, 0.664)" stroke-width="5" fill="rgba(255, 255, 255, 0.8)" filter="url(#f1)"/>
+    </svg>
+    </div>
 </table>
-<br>
-<br>
-<br>
-<br>

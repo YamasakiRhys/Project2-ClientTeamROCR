@@ -7,18 +7,24 @@ import { LoginService } from './login.service';
   providedIn: 'root'
 })
 export class LoggedInService {
+
   private static user: User;
+  private static role;
 
   constructor(private router: Router, private login: LoginService) { }
 
   setLoggedInUser(us) {
     LoggedInService.user = us;
+    LoggedInService.role = us.role;
   }
 
   getLoggedInUser(): User {
     return LoggedInService.user;
   }
 
+  getUserId(){
+    return LoggedInService.user.user_id;
+  }
 
   checkLoggedInUser() {
     if (localStorage.getItem('user') === null) {
@@ -27,9 +33,11 @@ export class LoggedInService {
   }
 
   logout(): void {
+    LoggedInService.user.role = LoggedInService.role;
     this.router.navigate(['']);
   }
 
+  //will change status of user to deactivated (for now just removes from array)
   delete(): void {
     for(var i = 0; i < this.login.users.length; i++){
       if(LoggedInService.user.username == this.login.users[i].username){

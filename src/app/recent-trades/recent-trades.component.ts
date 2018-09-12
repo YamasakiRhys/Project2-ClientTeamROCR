@@ -13,6 +13,7 @@ import { SearchService } from '../search.service';
 export class RecentTradesComponent implements OnInit {
 
   selectedTrades = [];
+  offerId;
 
   constructor(private tradeServ: TradeService, private router: Router, private logged: LoggedInService, private login: LoginService, private search: SearchService) { }
 
@@ -20,8 +21,9 @@ export class RecentTradesComponent implements OnInit {
     return this.login.getUsername(id);
   }
 
+  //Currently working on. this is the start of the trade process. When a user selects a trade they will be prompted to make an offer
   makeOffer(trade_id){
-    console.log(trade_id);
+    this.tradeServ.offerId = trade_id;
   }
 
   ngOnInit() {

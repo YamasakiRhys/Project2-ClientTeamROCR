@@ -15,6 +15,7 @@ export class LoginService {
   { user_id: 4, email: "o@gmail.com", username: "obosa", password: "pas", role: 2 },
   { user_id: 5, email: "g@gmail.com", username: "goblinslaya42", password: "pas", role: 2 }];
 
+  //filters through the user list to find a match in username and password
   getUser(username, password) {
     const user = {
       user_id: null,
@@ -33,6 +34,7 @@ export class LoginService {
     }
   }
 
+  //returns username by filtering with an id
   getUsername(id){
     for(var i = 0; i < this.users.length; i++){
       if(this.users[i].user_id == id){
@@ -49,6 +51,7 @@ export class LoginService {
     }
   }
 
+  //returns a list of all non-manager users
   getUsers(){
     var userList = [];
     for(var i = 0; i < this.users.length; i++){

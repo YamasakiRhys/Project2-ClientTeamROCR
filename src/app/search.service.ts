@@ -23,4 +23,8 @@ export class SearchService {
     }
     return filteredTrades;
   }
+
+  SearchById(uesr_id){
+    
+  }
 }
