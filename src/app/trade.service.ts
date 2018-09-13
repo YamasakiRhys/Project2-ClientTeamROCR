@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LoggedInService } from './logged-in.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,15 +11,22 @@ export class TradeService {
   { trade_id: 3, game_title: "Smite", genre: "MOBA", plot: "Dieties fight but only like 5 of them are able to win because hi-rez cant balance for shit", img: "https://cdn.mmohuts.com/wp-content/uploads/2015/03/Smite_604x423.jpg", user_id: 4, genrePref: "MMO", status: 1 },
   { trade_id: 4, game_title: "Sudoku", genre: "Puzzle", plot: "You put the numbers in the boxes....gg", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Sudoku_Puzzle_by_L2G-20050714_standardized_layout.svg/1200px-Sudoku_Puzzle_by_L2G-20050714_standardized_layout.svg.png", user_id: 2, genrePref: "platformer", status: 1 }];
 
-  offerId;
+  pairs = [];
 
-  constructor() { }
+  offer1Id;
+  offer2Id;
+  makingTrade = false;
+
+  constructor(private logged: LoggedInService) { }
 
   //gets a list of genres from all the trades and filters out duplicates
   getGenres() {
     var genres = [];
     var isDupe = false;
     for (var i = 0; i < this.trades.length; i++) {
+      if(this.trades[i].status != 1){
+        continue;
+      }
       for (var j = 0; j < genres.length; j++) {
         if (this.trades[i].genre == genres[j]) {
           isDupe = true;
@@ -36,11 +44,44 @@ export class TradeService {
   deleteTrade(trade_id){
     for(var i = 0; i < this.trades.length; i++){
       if(this.trades[i].trade_id == trade_id){
-        console.log(i);
-        console.log(this.trades[i]);
         this.trades.splice(i, 1);
         break;
       }
     }
+  }
+
+  getTradesById(user_id){
+    var userTrades = [];
+    for(var i = 0; i < this.trades.length; i++){
+      if(this.trades[i].user_id == user_id){
+        userTrades.push(this.trades[i]);
+      }
+    }
+    return userTrades;
+  }
+
+  createTrade(){
+    var offer1, offer2;
+    for(var i = 0; i < this.trades.length; i++){
+      if(this.trades[i].trade_id == this.offer1Id){
+        this.trades[i].status=2;
+        offer1 = this.trades[i]
+      }
+      if(this.trades[i].trade_id == this.offer2Id){
+        this.trades[i].status=2;
+        offer2 = this.trades[i]
+      }
+    }
+    this.pairs.push({first: offer1, second: offer2});
+  }
+
+  getPairs(){
+    var userPairs = [];
+    for(var i = 0; i<this.pairs.length;i++){
+      if(this.logged.getUserId() == this.pairs[i].user_id){
+        userPairs[i] = this.pairs[i];
+      }
+    }
+    return userPairs;
   }
 }

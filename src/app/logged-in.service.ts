@@ -9,13 +9,13 @@ import { LoginService } from './login.service';
 export class LoggedInService {
 
   private static user: User;
-  private static role;
+  public navNum;
 
   constructor(private router: Router, private login: LoginService) { }
 
   setLoggedInUser(us) {
     LoggedInService.user = us;
-    LoggedInService.role = us.role;
+    this.navNum = us.role;
   }
 
   getLoggedInUser(): User {
@@ -33,7 +33,7 @@ export class LoggedInService {
   }
 
   logout(): void {
-    LoggedInService.user.role = LoggedInService.role;
+    LoggedInService.user = null;
     this.router.navigate(['']);
   }
 

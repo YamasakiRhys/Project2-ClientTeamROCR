@@ -15,7 +15,6 @@ import { LoginService } from '../login.service';
 export class NavbarComponent implements OnInit {
 
   user: User;
-  err: string;
   genres = [];
 
   constructor(private login: LoginService, private router: Router, private logged: LoggedInService, private tradeServ: TradeService, private search: SearchService) { }
@@ -27,7 +26,8 @@ export class NavbarComponent implements OnInit {
         this.logged.setLoggedInUser(this.user);
         this.login.changePage(this.user);
       } else {
-        this.err = 'You have input an incorrect email/password combination';
+        alert('You have input an incorrect email/password combination');
+        return;
       }
       document.getElementById('lodmod').style.display='none'
   }

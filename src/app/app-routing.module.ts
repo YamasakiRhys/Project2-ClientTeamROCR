@@ -5,6 +5,7 @@ import { ManagerScreenComponent } from './pages/manager-screen/manager-screen.co
 import { RegisterScreenComponent } from './pages/register-screen/register-screen.component';
 import { NewTradeScreenComponent } from './pages/new-trade-screen/new-trade-screen.component';
 import { MyTradesScreenComponent } from './pages/my-trades-screen/my-trades-screen.component';
+import { TradingScreenComponent } from './pages/trading-screen/trading-screen.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'loggedin/manager/userlist', component: UsersListScreenComponent},
   { path: 'register', component: RegisterScreenComponent },
   { path: 'loggedin/user/trade', component: NewTradeScreenComponent },
-  { path: 'loggedin/user/mytrades', component: MyTradesScreenComponent }
+  { path: 'loggedin/user/mytrades', component: MyTradesScreenComponent },
+  { path: 'loggedin/user/trading', component: TradingScreenComponent }
 ];
 
 @NgModule({

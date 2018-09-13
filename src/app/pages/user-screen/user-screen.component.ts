@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoggedInService } from '../../logged-in.service';
+import {TradeService} from '../../trade.service';
 
 @Component({
   selector: 'app-user-screen',
@@ -8,9 +9,12 @@ import { LoggedInService } from '../../logged-in.service';
 })
 export class UserScreenComponent implements OnInit {
 
-  constructor(private logged: LoggedInService) { }
+  constructor(private logged: LoggedInService, private tradeServ: TradeService) { }
 
   ngOnInit() {
+    this.logged.navNum = 2;
+    var userPairs = this.tradeServ.getPairs();
+    console.log(userPairs);
   }
 
 }

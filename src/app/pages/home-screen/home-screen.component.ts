@@ -13,6 +13,6 @@ export class HomeScreenComponent implements OnInit {
   constructor(private login: LoginService, private logged: LoggedInService) { }
 
   ngOnInit() {
-    this.logged.setLoggedInUser({username: null, password: null, role:9});
+    this.logged.navNum = 9;
   }
 }

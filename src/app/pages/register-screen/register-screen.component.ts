@@ -28,7 +28,7 @@ export class RegisterScreenComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.logged.setLoggedInUser({username: null, password: null, role:10});
+    this.logged.navNum = 10;
   }
 
 }
