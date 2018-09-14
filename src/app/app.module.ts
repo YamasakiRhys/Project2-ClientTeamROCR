@@ -16,6 +16,7 @@ import { NewTradeScreenComponent } from './pages/new-trade-screen/new-trade-scre
 import { UsersListScreenComponent } from './pages/users-list-screen/users-list-screen.component';
 import { MyTradesScreenComponent } from './pages/my-trades-screen/my-trades-screen.component';
 import { TradingScreenComponent } from './pages/trading-screen/trading-screen.component';
+import { HandleOffersScreenComponent } from './pages/handle-offers-screen/handle-offers-screen.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { TradingScreenComponent } from './pages/trading-screen/trading-screen.co
     NewTradeScreenComponent,
     UsersListScreenComponent,
     MyTradesScreenComponent,
-    TradingScreenComponent
+    TradingScreenComponent,
+    HandleOffersScreenComponent
   ],
   imports: [
     BrowserModule,

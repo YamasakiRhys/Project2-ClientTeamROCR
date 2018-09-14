@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoggedInService } from '../../logged-in.service';
 import {TradeService} from '../../trade.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-screen',
@@ -9,12 +10,18 @@ import {TradeService} from '../../trade.service';
 })
 export class UserScreenComponent implements OnInit {
 
-  constructor(private logged: LoggedInService, private tradeServ: TradeService) { }
+  public userPairs;
+
+  constructor(private logged: LoggedInService, private tradeServ: TradeService, private router: Router) { }
+
+  handleOffers(){
+    this.router.navigate(['/loggedin/user/handleoffers']);
+  }
 
   ngOnInit() {
     this.logged.navNum = 2;
-    var userPairs = this.tradeServ.getPairs();
-    console.log(userPairs);
+    this.userPairs = this.tradeServ.getPairs();
+    console.log(this.tradeServ.trades);
   }
 
 }

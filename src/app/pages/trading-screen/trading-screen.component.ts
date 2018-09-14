@@ -27,7 +27,6 @@ export class TradingScreenComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.logged.setLoggedInUser({ user_id: 2, email: "r@gmail.com", username: "richard", password: "pas", role: 2 });
     this.userTrades = this.tradeServ.getTradesById(this.logged.getUserId());
   }
 }
