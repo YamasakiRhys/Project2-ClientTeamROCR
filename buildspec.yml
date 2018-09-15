@@ -11,7 +11,7 @@ phases:
            - ng build --prod
    post_build:
         commands:
-           - aws s3 sync --delete dist/Project2-ClientTeamROCR s3://(name of our s3 bucket in here)
+           - aws s3 sync --delete dist/Project2-ClientTeamROCR s3://project2images
 artifacts:
    files:
        - '**/*'

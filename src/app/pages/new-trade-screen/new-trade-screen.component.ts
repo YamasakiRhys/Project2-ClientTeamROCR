@@ -35,10 +35,27 @@ export class NewTradeScreenComponent implements OnInit {
   }
 
   makeGame(rTitle, rPlot){
-    if(!rTitle || !rPlot || !this.filePath || !this.genre){
+    if(!rTitle){
       alert("Please fill in all boxes and upload an image");
+      console.log("test");
       return;
     }
+    if(!rPlot){
+      alert("Please fill in all boxes and upload an image");
+      console.log("test");
+      return;
+    }
+    if(!this.selectedFile){
+      alert("Please fill in all boxes and upload an image");
+      console.log("test");
+      return;
+    }
+    if(!this.genre){
+      alert("Please fill in all boxes and upload an image");
+      console.log("test");
+      return;
+    }
+
     this.makePath();
     this.uploadImage(this.selectedFile);
     var game = {
