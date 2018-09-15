@@ -1,0 +1,58 @@
+#firstContent{
+    background-color: rgba(154, 196, 216, 0.815);
+    height: 400px;
+    width: 75%;
+    margin: auto;
+}
+
+#delButton{
+    border-radius: 12px;
+    height: 60px;
+    width: 150px;
+    background-color: rgb(0, 132, 255);
+    border: none;
+    margin: 20px;
+    
+}
+
+.modal {
+    text-align: center;
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: rgb(161, 210, 255);
+    margin: 5% auto 15% auto;
+    border: 3px solid rgb(177, 191, 255);
+    width: 80%;
+}
+
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover, 
+.close:focus {
+    color: red;
+}
+
+.animate {
+    animation: animatezoom 0.6s
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}

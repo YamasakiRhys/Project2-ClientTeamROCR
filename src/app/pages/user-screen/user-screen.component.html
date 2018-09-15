@@ -1,0 +1,18 @@
+<div id="delmod" class="modal">
+    <div id="myform" class="modal-content animate">
+        <div>
+            <span onclick="document.getElementById('delmod').style.display='none'" class="close" title="Close Modal">&times;</span>
+        </div>
+        <div class="container">
+            <h1>***Are you sure***</h1>
+            <h1>This cannot be undone</h1>
+            <br><br>
+            <button id="delButton" (click)='logged.delete()'>Yes</button>
+            <button id="delButton" onclick="document.getElementById('delmod').style.display='none'">No</button>
+        </div>
+    </div>
+</div>
+
+<br><br><br><br><br>
+<div id="firstContent">**insert stuff here**</div>
+<app-recent-trades></app-recent-trades>

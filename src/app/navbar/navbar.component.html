@@ -1,0 +1,38 @@
+<!-- Login modal start -->
+<div id="lodmod" class="modal">
+    <div id="myform" class="modal-content animate">
+        <div>
+            <span onclick="document.getElementById('lodmod').style.display='none'" class="close fade-box" title="Close Modal">&times;</span>
+        </div>
+        <div class="container">
+            <h5 class="fade-box">Username</h5>
+            <mat-form-field class="fade-box">
+                <input matInput type="text" placeholder="Enter Username" #username id="usrbox" name="uname">
+            </mat-form-field>
+            <!-- #username acts similar to the id attribute -->
+            <h5 class="fade-box">Password</h5>
+            <mat-form-field class="fade-box">
+                <input matInput type="password" placeholder="Enter Password" #password id="passbox" name="psw">
+            </mat-form-field>
+            <!-- #password acts similar to the id attribute -->
+            <button type="submit" id="logbutton" class="fade-box" (click)="userLogin(username.value, password.value);">Login</button>
+            <!-- (click) same as onClick attribute -->
+            <!-- uses the #attributes to get the values -->
+        </div>
+    </div>
+</div>
+<!-- Login modal end -->
+
+<ul>
+  <li *ngIf='logged.getLoggedInUser().role===2' (click)='newTrade()'>Make a Request</li>
+  <li *ngIf='logged.getLoggedInUser().role===2' onclick="document.getElementById('delmod').style.display='block'">Deactivate account</li>
+  <li style="float:right" *ngIf='logged.getLoggedInUser().role===9' onclick="document.getElementById('lodmod').style.display='block'">Login</li>
+  <li style="float:right" *ngIf='logged.getLoggedInUser().role===9' (click)='register()'>Register</li>
+  <li *ngIf='logged.getLoggedInUser().role===1' (click)='getUsers()'>Get Users</li>
+  <select *ngIf='logged.getLoggedInUser().role!<=2' id="genreSelect" (change)="selectChangeHandler($event)">
+    <option selected value="none">select a genre</option>
+    <option *ngFor='let genre of this.tradeServ.getGenres()' value='{{genre}}'>{{genre}}</option>
+  </select>
+  <li style="float:right" *ngIf='logged.getLoggedInUser().role!<=2' (click)='logged.logout()'>Logout</li>
+  <li style="float:right" *ngIf='logged.getLoggedInUser().role===10' (click)='backHome()'>Back</li>
+</ul>

@@ -1,0 +1,46 @@
+<div id="offermod" class="modal">
+    <div id="myform" class="modal-content animate">
+        <div>
+            <span onclick="document.getElementById('offermod').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <h3>What kind of offer will you give?</h3>
+            <button>Use existing trade</button>
+            <button>Make new trade</button>
+        </div>
+    </div>
+</div>
+
+<h1 id="recentTitle">Recently opened Trades</h1>
+<table>
+    <tr *ngFor='let trade of selectedTrades'>
+        <td>
+            <div class="gameinfo">
+                <h1 id="gameTitle">{{trade.game_title}}</h1>
+                <h3>Genre: {{trade.genre}}</h3>
+                <br>
+                <h4>Plot: {{trade.plot}}</h4>
+                <br>
+                <h6>Trade created by {{getUsername(trade.user_id)}}</h6>
+                <h6 id="down">Prefered trade genre: {{trade.genrePref}}</h6>
+                <button id="offerButton" onclick="document.getElementById('offermod').style.display='block'" (click)="makeOffer(trade.trade_id)">Make Offer</button>
+                <img src={{trade.img}} class="gameimg">
+            </div>
+        </td>
+        <svg ng-if='first' height="90px" width="1500" id="lines">
+            <defs>
+                <filter id="f1">
+                    <feOffset result="offOut" in="SourceGraphic" dx="0" dy="0" />
+                    <feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
+                    <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+                </filter>
+            </defs>
+            <path d="M 100 45 l 300 40 q 309.6 -50 719.2 0 l 300 -40 l -300 -40 q -309.6 50 -719.2 0 l -300 40" stroke="rgba(183, 211, 218, 0.664)" stroke-width="4" fill="none" />
+            <path d="M 100 45 l 14.6 31.6 l 185 -31.6 l -185 -31.6z M 1419.2 45 l -14.6 31.6 l -185 -31.6 l 185 -31.6z" stroke="rgba(183, 211, 218, 0.664)" stroke-width="0" fill="rgba(255, 255, 255, 0.4"/>
+            <path d="M 300 45 l 100 25 l 250 -25 l -250 -25z M 1219.2 45 l -100 25 l -250 -25 l 250 -25z" stroke="rgba(183, 211, 218, 0.664)" stroke-width="0" fill="rgba(255, 255, 255, 0.65" />
+            <path d="M 650 45 l 110 40 l 110 -40 l -110 -40z" stroke="rgba(183, 211, 218, 0.664)" stroke-width="5" fill="rgba(255, 255, 255, 0.8)" filter="url(#f1)"/>
+        </svg>
+    </tr>
+</table>
+<br>
+<br>
+<br>
+<br>

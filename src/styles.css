@@ -1,0 +1,13 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+body{
+    background-image: url("https://cdn.dribbble.com/users/1083431/screenshots/3269881/gif.gif");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: '8BITWONDERNominal';
+    font-weight: normal;
+    font-style: normal;
+    overflow-x:hidden;
+}

@@ -1,0 +1,58 @@
+#tradeInfo{
+    background-color: rgb(154, 196, 216);
+    padding:60px;
+    margin:90px;
+    text-align: center;
+}
+#tradeInfo h1{
+    font-size: 50px;
+    margin-bottom: 60px;
+}
+#tradeInfo h2{
+    margin:35px;
+}
+#tradeInfo input{
+    height:40px;
+    width: 500px;
+    margin-bottom: 15px;
+}
+.infoSection{
+    background-color: rgb(154, 181, 216);
+    border: 5px solid black;
+    margin:auto;
+    width: 1000px;
+    padding: 40px;
+    margin-bottom: 35px;
+}
+#createButton{
+    height:100px;
+    width: 300px;
+    font-size: 40px;
+    background: linear-gradient(rgb(155, 188, 238), rgb(113, 139, 196));
+    border: 2px solid rgb(33, 45, 77);
+}
+input{
+    -moz-border-radius: 15px;
+    border-radius: 8px;
+    border:solid 1px black;
+    padding:5px;
+}
+
+input:focus{
+    animation: glow 1600ms ease-out infinite
+}
+
+@keyframes glow {
+    0% {
+		border-color: rgb(198, 29, 204);
+		box-shadow: 0 0 5px rgba(212, 0, 255, 0.2), inset 0 0 5px rgba(212, 0, 255, 0.1), 0 2px 0 #000;
+    }	
+    50% {
+		border-color: rgb(131, 24, 131);
+		box-shadow: 0 0 20px rgba(212, 0, 255, 0.6), inset 0 0 10px rgba(212, 0, 255, 0.4), 0 2px 0 #000;
+    }
+    100% {
+		border-color: rgb(198, 29, 204);
+		box-shadow: 0 0 5px rgba(212, 0, 255, 0.2), inset 0 0 5px rgba(212, 0, 255, 0.1), 0 2px 0 #000;
+    }	
+}

@@ -1,0 +1,33 @@
+<br>
+<br>
+<br>
+<div id="userInfo">
+  <h1>Create an Account</h1>
+  <div class="infoSection">
+    <h2>Account Information</h2>
+    <h3>Username</h3>
+      <input type="text" placeholder="Username" #rUsername>
+    <h3>Password</h3>
+    <input type="password" placeholder="Password" #rPassword>
+  </div>
+  <div class="infoSection">
+    <h2>Contact and Delivery Information</h2>
+    <h3>First Name</h3>
+    <input type="text" placeholder="First Name" #rFname>
+    <h3>Last Name</h3>
+    <input type="text" placeholder="Last Name" #rLname>
+    <h3>Email</h3>
+    <input type="text" placeholder="Email" #rEmail>
+    <h3>Country</h3>
+    <input type="text" placeholder="Country" #rCountry>
+    <h3>State</h3>
+    <input type="text" placeholder="State" #rState>
+    <h3>City</h3>
+    <input type="text" placeholder="City" #rCity>
+    <h3>Street</h3>
+    <input type="text" placeholder="Street" #rStreet>
+    <h3>Phone Number</h3>
+    <input type="text" placeholder="Phone Number" #rPhone>
+  </div>
+  <button id="createButton" (click)="register(rUsername.value, rPassword.value)">Create</button>
+</div>
