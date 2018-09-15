@@ -1,3 +1,111 @@
+#gamemod{
+    padding: auto;
+}
+ul {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    font-size: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(2, 35, 61);
+    z-index: 1;
+}
+
+li {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li:hover {
+    background-color: rgb(68, 85, 90);
+}
+
+.active {
+    background-color: rgb(76, 83, 175);
+}
+#genreSelect{
+    margin-top: 10px;
+    -moz-border-radius: 15px;
+    border-radius: 8px;
+    background-color: rgb(2, 35, 61);
+    color: white;
+    border:solid 3px rgb(110, 190, 255);
+    padding:5px;
+}
+
+#logbutton{
+    height: 50px;
+    width: 150px;
+    background: linear-gradient(rgb(155, 188, 238), rgb(113, 139, 196));
+    border: 2px solid rgb(33, 45, 77);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: rgb(161, 210, 255);
+    margin: 5% auto 15% auto;
+    padding: 30px;
+    border: 3px solid rgb(177, 191, 255);
+    width: 40%;
+}
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover, 
+.close:focus {
+    color: red;
+}
+#submitGame{
+    border-radius: 8px;
+    border:solid 1px black;
+    background-color: rgb(136, 191, 255);
+    padding:5px;
+    position: absolute;
+    height: 80px;
+    width: 160px;
+    font-size: 15px;
+    bottom: 50px;
+    right: 50px;
+}
+.select{
+    margin-top: 10px;
+    -moz-border-radius: 15px;
+    border-radius: 8px;
+    background-color: rgb(110, 190, 255);
+    color: black;
+    border:solid 1px rgb(0, 0, 0);
+    padding:5px;
+}
+#gameButton{
+    border-radius: 8px;
+    border:solid 1px black;
+    background-color: rgb(105, 195, 236);
+    margin: 15px;
+    padding:8px;
+}
 #tradeInfo{
     background-color: rgb(154, 196, 216);
     padding:60px;
@@ -31,8 +139,21 @@
     background: linear-gradient(rgb(155, 188, 238), rgb(113, 139, 196));
     border: 2px solid rgb(33, 45, 77);
 }
+
+#fileInput{
+    padding: 10px;
+    background: white;
+    border: 1px solid rgb(33, 45, 77);
+    border-radius: 8px;
+    display: table;
+    color: rgb(56, 56, 56);
+}
+
+input[type="file"] {
+    display: none;
+}
+
 input{
-    -moz-border-radius: 15px;
     border-radius: 8px;
     border:solid 1px black;
     padding:5px;

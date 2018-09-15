@@ -15,26 +15,24 @@ import { LoginService } from '../login.service';
 export class NavbarComponent implements OnInit {
 
   user: User;
-  err: string;
   genres = [];
 
   constructor(private login: LoginService, private router: Router, private logged: LoggedInService, private tradeServ: TradeService, private search: SearchService) { }
 
   //function called when the modal login button is clicked
   userLogin(username, password): void {
-    //this.login.getUser is the getUser function in the login.service.ts
-    this.user = this.login.getUser(username, password)
-      // if login was successful
+    this.login.getUser(username, password).subscribe(x => {this.user = x;
       if (this.user) {
         this.logged.setLoggedInUser(this.user);
-        // call the service function that changes the page
-        this.login.changePage(this.user);
+        this.router.navigate(['/loggedin/user']);
       } else {
-        this.err = 'You have input an incorrect email/password combination';
+        alert('You have input an incorrect email/password combination');
+        return;
       }
-      document.getElementById('lodmod').style.display='none'
+      document.getElementById('lodmod').style.display='none'});
   }
-  
+
+  //when the dropdown is changed
   selectChangeHandler (event: any) {
     this.search.selectedGenre = event.target.value;
     this.router.navigate(['/loggedin/manager'])
@@ -48,6 +46,9 @@ export class NavbarComponent implements OnInit {
   backHome(): void{
     this.router.navigate(['/']);
   }
+  backUser(): void{
+    this.router.navigate(['/loggedin/user']);
+  }
 
   newTrade(): void{
     this.router.navigate(['/loggedin/user/trade']);
@@ -55,6 +56,10 @@ export class NavbarComponent implements OnInit {
 
   getUsers(){
     this.router.navigate(['/loggedin/manager/userlist']);
+  }
+
+  viewMyTrades(){
+    this.router.navigate(['/loggedin/user/mytrades']);
   }
 
   ngOnInit() {

@@ -1,0 +1,122 @@
+<br>
+<table *ngIf='this.myOpenTrades.length'>
+    <h1 class="sectionTitle">Open Trades</h1>
+    <br>
+    <br>
+    <br>
+    <svg ng-if='first' height="90px" width="1500" class="lines">
+        <defs>
+            <filter id="f1">
+                <feOffset result="offOut" in="SourceGraphic" dx="0" dy="0" />
+                <feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
+                <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+            </filter>
+        </defs>
+        <path d="M 100 45 l 300 40 q 309.6 -50 719.2 0 l 300 -40 l -300 -40 q -309.6 50 -719.2 0 l -300 40" stroke="rgba(183, 211, 218, 0.664)"
+            stroke-width="4" fill="none" />
+        <path d="M 100 45 l 14.6 31.6 l 185 -31.6 l -185 -31.6z M 1419.2 45 l -14.6 31.6 l -185 -31.6 l 185 -31.6z" stroke="rgba(183, 211, 218, 0.664)"
+            stroke-width="0" fill="rgba(255, 255, 255, 0.4" />
+        <path d="M 300 45 l 100 25 l 250 -25 l -250 -25z M 1219.2 45 l -100 25 l -250 -25 l 250 -25z" stroke="rgba(183, 211, 218, 0.664)"
+            stroke-width="0" fill="rgba(255, 255, 255, 0.65" />
+        <path d="M 650 45 l 110 40 l 110 -40 l -110 -40z" stroke="rgba(183, 211, 218, 0.664)" stroke-width="5" fill="rgba(255, 255, 255, 0.8)"
+            filter="url(#f1)" />
+    </svg>
+    <tr *ngFor='let trade of myOpenTrades'>
+        <td>
+            <div class="gameinfo">
+                <h1 id="gameTitle">{{trade.games.title}}</h1>
+                <h3>Genre: {{trade.games.genre.genreType}}</h3>
+                <br>
+                <h4>Plot: {{trade.games.plot}}</h4>
+                <br>
+                <h6>Trade created by {{trade.account.username}}</h6>
+                <h6 id="down">{{trade.description}}</h6>
+                <button (click)="deleteTrade(trade.trade_id)" id="deleteButton">Remove Trade</button>
+                <img src={{trade.img}} class="gameimg">
+            </div>
+        </td>
+    </tr>
+</table>
+
+<table *ngIf='this.myOfferedTrades.length'>
+    <h1 class="sectionTitle">Offered Trades</h1>
+    <br>
+    <br>
+    <br>
+    <svg ng-if='first' height="90px" width="1500" class="lines">
+        <defs>
+            <filter id="f1">
+                <feOffset result="offOut" in="SourceGraphic" dx="0" dy="0" />
+                <feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
+                <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+            </filter>
+        </defs>
+        <path d="M 100 45 l 300 40 q 309.6 -50 719.2 0 l 300 -40 l -300 -40 q -309.6 50 -719.2 0 l -300 40" stroke="rgba(183, 211, 218, 0.664)"
+            stroke-width="4" fill="none" />
+        <path d="M 100 45 l 14.6 31.6 l 185 -31.6 l -185 -31.6z M 1419.2 45 l -14.6 31.6 l -185 -31.6 l 185 -31.6z" stroke="rgba(183, 211, 218, 0.664)"
+            stroke-width="0" fill="rgba(255, 255, 255, 0.4" />
+        <path d="M 300 45 l 100 25 l 250 -25 l -250 -25z M 1219.2 45 l -100 25 l -250 -25 l 250 -25z" stroke="rgba(183, 211, 218, 0.664)"
+            stroke-width="0" fill="rgba(255, 255, 255, 0.65" />
+        <path d="M 650 45 l 110 40 l 110 -40 l -110 -40z" stroke="rgba(183, 211, 218, 0.664)" stroke-width="5" fill="rgba(255, 255, 255, 0.8)"
+            filter="url(#f1)" />
+    </svg>
+    <tr *ngFor='let trade of myOfferedTrades'>
+        <td>
+            <div class="gameinfo">
+                <h1 id="gameTitle">{{trade.games.title}}</h1>
+                <h3>Genre: {{trade.games.genre.genreType}}</h3>
+                <br>
+                <h4>Plot: {{trade.games.plot}}</h4>
+                <br>
+                <h6>Trade created by {{trade.account.username}}</h6>
+                <h6 id="down">{{trade.description}}</h6>
+                <button id="deleteButton" (click) = "takeBack()">Take back offer not functional</button>
+                <img src={{trade.img}} class="gameimg">
+            </div>
+        </td>
+    </tr>
+</table>
+
+<table *ngIf='this.myPendingTrades.length'>
+    <h1 class="sectionTitle">Offered Trades</h1>
+    <br>
+    <br>
+    <br>
+    <svg ng-if='first' height="90px" width="1500" class="lines">
+        <defs>
+            <filter id="f1">
+                <feOffset result="offOut" in="SourceGraphic" dx="0" dy="0" />
+                <feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
+                <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+            </filter>
+        </defs>
+        <path d="M 100 45 l 300 40 q 309.6 -50 719.2 0 l 300 -40 l -300 -40 q -309.6 50 -719.2 0 l -300 40" stroke="rgba(183, 211, 218, 0.664)"
+            stroke-width="4" fill="none" />
+        <path d="M 100 45 l 14.6 31.6 l 185 -31.6 l -185 -31.6z M 1419.2 45 l -14.6 31.6 l -185 -31.6 l 185 -31.6z" stroke="rgba(183, 211, 218, 0.664)"
+            stroke-width="0" fill="rgba(255, 255, 255, 0.4" />
+        <path d="M 300 45 l 100 25 l 250 -25 l -250 -25z M 1219.2 45 l -100 25 l -250 -25 l 250 -25z" stroke="rgba(183, 211, 218, 0.664)"
+            stroke-width="0" fill="rgba(255, 255, 255, 0.65" />
+        <path d="M 650 45 l 110 40 l 110 -40 l -110 -40z" stroke="rgba(183, 211, 218, 0.664)" stroke-width="5" fill="rgba(255, 255, 255, 0.8)"
+            filter="url(#f1)" />
+    </svg>
+    <tr *ngFor='let trade of myPendingTrades'>
+        <td>
+            <div class="gameinfo">
+                <h1 id="gameTitle">{{trade.games.title}}</h1>
+                <h3>Genre: {{trade.games.genre.genreType}}</h3>
+                <br>
+                <h4>Plot: {{trade.games.plot}}</h4>
+                <br>
+                <h6>Trade created by {{trade.account.username}}</h6>
+                <h6 id="down">{{trade.description}}</h6>
+                <img src={{trade.img}} class="gameimg">
+            </div>
+        </td>
+    </tr>
+</table>
+
+<table>
+    <div *ngIf='this.noTrades' class="gameinfo">
+        <h1>You have no trades</h1>
+    </div>
+</table>

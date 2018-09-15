@@ -2,6 +2,7 @@
     background-color: rgba(154, 196, 216, 0.815);
     box-shadow: 10px 10px rgba(0, 0, 0, 0.7);
     margin:80px;
+    margin-bottom: 0px;
     margin-left: 350px;
     height: auto;
     width: 800px;
@@ -9,19 +10,21 @@
     color: rgb(0, 0, 0);
     word-wrap:break-word;
 }
-#offerButton{
+#deleteButton{
     border: none;
     height: 60px;
     width: 150px;
     background-color: rgb(121, 212, 255);
     border-radius: 12px;
 }
-#recentTitle{
+.sectionTitle{
     color: white;
     text-align: center;
     text-shadow: 5px 5px black;
     font-size: 50px;
-    margin: 150px;
+    margin: 80px;
+    margin-bottom: 0px;
+    width: 1359.2px;
 }
 #gameTitle{
     text-align: center;
@@ -36,22 +39,14 @@
     box-shadow: 10px 10px rgba(0, 0, 0, 0.7);
     max-width:400px;
     max-height:300px;
-    min-width:230px;
+    min-width:250px;
     min-height:220px;
     position:relative;
 }
 #down{
     margin-bottom: 150px;
 }
-#lines{
+.lines{
     position: relative;
-    right: 1230px;
-    bottom: 80px;
-}
-.offermodbutton{
-    height: 80px;
-    width: 200px;
-    background: linear-gradient(rgb(155, 188, 238), rgb(113, 139, 196));
-    border: 2px solid rgb(33, 45, 77);
-    margin:50px;
+    top: 10px;
 }

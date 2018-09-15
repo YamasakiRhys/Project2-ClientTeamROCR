@@ -1,3 +1,4 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,6 +15,9 @@ import { RegisterScreenComponent } from './pages/register-screen/register-screen
 import { RecentTradesComponent } from './recent-trades/recent-trades.component';
 import { NewTradeScreenComponent } from './pages/new-trade-screen/new-trade-screen.component';
 import { UsersListScreenComponent } from './pages/users-list-screen/users-list-screen.component';
+import { MyTradesScreenComponent } from './pages/my-trades-screen/my-trades-screen.component';
+import { TradingScreenComponent } from './pages/trading-screen/trading-screen.component';
+import { HandleOffersScreenComponent } from './pages/handle-offers-screen/handle-offers-screen.component';
 
 
 @NgModule({
@@ -28,7 +32,10 @@ import { UsersListScreenComponent } from './pages/users-list-screen/users-list-s
     RegisterScreenComponent,
     RecentTradesComponent,
     NewTradeScreenComponent,
-    UsersListScreenComponent
+    UsersListScreenComponent,
+    MyTradesScreenComponent,
+    TradingScreenComponent,
+    HandleOffersScreenComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +44,8 @@ import { UsersListScreenComponent } from './pages/users-list-screen/users-list-s
     MatButtonModule,
     MatInputModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
