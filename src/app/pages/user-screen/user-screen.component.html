@@ -1,3 +1,7 @@
+<div *ngIf="this.userPairs.length" id="tradeNotification" (click)="handleOffers()">
+    <h1>You have offers</h1>
+</div>
+
 <div id="delmod" class="modal">
     <div id="myform" class="modal-content animate">
         <div>
@@ -6,13 +10,17 @@
         <div class="container">
             <h1>***Are you sure***</h1>
             <h1>This cannot be undone</h1>
-            <br><br>
+            <br>
+            <br>
             <button id="delButton" (click)='logged.delete()'>Yes</button>
             <button id="delButton" onclick="document.getElementById('delmod').style.display='none'">No</button>
         </div>
     </div>
 </div>
-
-<br><br><br><br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div id="firstContent">**insert stuff here**</div>
 <app-recent-trades></app-recent-trades>

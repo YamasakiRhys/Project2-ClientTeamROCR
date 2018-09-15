@@ -9,12 +9,13 @@
     color: rgb(0, 0, 0);
     word-wrap:break-word;
 }
-#offerButton{
-    border: none;
-    height: 60px;
-    width: 150px;
-    background-color: rgb(121, 212, 255);
+.handleButton{
     border-radius: 12px;
+    height: 70px;
+    width: 180px;
+    background: linear-gradient(rgb(155, 188, 238), rgb(113, 139, 196));
+    border: 2px solid rgb(33, 45, 77);
+    margin: 6px;
 }
 #recentTitle{
     color: white;
@@ -23,7 +24,16 @@
     font-size: 50px;
     margin: 150px;
 }
+.offer{
+    text-align: center;
+    margin: 15px;
+}
 #gameTitle{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 60px;
+}
+#gameTitle2{
     text-align: center;
     margin-top: 15px;
     margin-bottom: 80px;
@@ -36,22 +46,15 @@
     box-shadow: 10px 10px rgba(0, 0, 0, 0.7);
     max-width:400px;
     max-height:300px;
-    min-width:230px;
+    min-width:250px;
     min-height:220px;
     position:relative;
 }
 #down{
-    margin-bottom: 150px;
+    margin-bottom: 100px;
 }
 #lines{
     position: relative;
     right: 1230px;
     bottom: 80px;
-}
-.offermodbutton{
-    height: 80px;
-    width: 200px;
-    background: linear-gradient(rgb(155, 188, 238), rgb(113, 139, 196));
-    border: 2px solid rgb(33, 45, 77);
-    margin:50px;
 }

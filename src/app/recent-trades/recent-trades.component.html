@@ -1,27 +1,16 @@
-<div id="offermod" class="modal">
-    <div id="myform" class="modal-content animate">
-        <div>
-            <span onclick="document.getElementById('offermod').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <h3>What kind of offer will you give?</h3>
-            <button>Use existing trade</button>
-            <button>Make new trade</button>
-        </div>
-    </div>
-</div>
-
 <h1 id="recentTitle">Recently opened Trades</h1>
 <table>
     <tr *ngFor='let trade of selectedTrades'>
         <td>
             <div class="gameinfo">
-                <h1 id="gameTitle">{{trade.game_title}}</h1>
-                <h3>Genre: {{trade.genre}}</h3>
+                <h1 id="gameTitle">{{trade.games.title}}</h1>
+                <h3>Genre: {{trade.games.genre.genreType}}</h3>
                 <br>
-                <h4>Plot: {{trade.plot}}</h4>
+                <h4>Plot: {{trade.games.plot}}</h4>
                 <br>
-                <h6>Trade created by {{getUsername(trade.user_id)}}</h6>
-                <h6 id="down">Prefered trade genre: {{trade.genrePref}}</h6>
-                <button id="offerButton" onclick="document.getElementById('offermod').style.display='block'" (click)="makeOffer(trade.trade_id)">Make Offer</button>
+                <h6>Trade created by {{trade.account.username}}</h6>
+                <h6 id="down">"{{trade.description}}"</h6>
+                <button *ngIf='trade.account.userId !== logged.getUserId()' id="offerButton" (click)="makeOffer(trade.requestId)">Make Offer</button>
                 <img src={{trade.img}} class="gameimg">
             </div>
         </td>

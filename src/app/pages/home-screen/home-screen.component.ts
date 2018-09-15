@@ -1,9 +1,10 @@
-//TS file for just the home page
 import { LoginService } from '../../login.service';
 import { LoggedInService } from '../../logged-in.service';
-import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/user';
+import { User } from '../../models/user';
+import { Trade } from '../../models/trade';
+import { TradeService } from '../../trade.service';
+import { SearchService } from '../../search.service';
 
 @Component({
   selector: 'app-home-screen',
@@ -11,13 +12,17 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./home-screen.component.css']
 })
 
-//place to put functions and variables. not actually callable
 export class HomeScreenComponent implements OnInit {
 
-  //constructor for router
-  constructor(private login: LoginService, private logged: LoggedInService) { }
+  users: User[];
+
+  constructor(private login: LoginService, private logged: LoggedInService, private tradeServ: TradeService, private search: SearchService) { }
 
   ngOnInit() {
-    this.logged.setLoggedInUser({username: null, password: null, role:9});
+    this.logged.navNum = 9;
+    this.login.getAccounts()
+    this.tradeServ.setTrades();
+    this.search.setAllGenres();
+    this.search.setAllGames();
   }
 }
