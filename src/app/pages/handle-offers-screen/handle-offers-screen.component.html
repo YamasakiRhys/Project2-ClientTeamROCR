@@ -3,21 +3,21 @@
         <td>
             <div class="gameinfo">
                 <h1 class="offer">Offer for</h1>
-                <h2 id="gameTitle">{{pair[0].game_title}}</h2>
+                <h2 id="gameTitle">{{pair.first.game_title}}</h2>
                 <svg width="100%" height="50px">
                     <path d="M 0 0 l 800 000" stroke-width="10" stroke="black" />
                 </svg>
                 <h1 class="offer">Offer</h1>
-                <h2 id="gameTitle2">{{pair[1].game_title}}</h2>
-                <h3>Genre: {{pair[1].genre}}</h3>
+                <h2 id="gameTitle2">{{pair.second.game_title}}</h2>
+                <h3>Genre: {{pair.second.genre}}</h3>
                 <br>
-                <h4>Plot: {{pair[1].plot}}</h4>
+                <h4>Plot: {{pair.second.plot}}</h4>
                 <br>
-                <h6>Offer from by {{getUsername(pair[1].user_id)}}</h6>
-                <h6 id="down">Prefered trade genre: {{pair[1].genrePref}}</h6>
-                <button class='handleButton' (click)="accepted(pair)">Accept</button>
-                <button class='handleButton' (click)="declined(pair)">Decline</button>
-                <img src={{pair[1].img}} class="gameimg">
+                <h6>Offer from by {{getUsername(pair.second.user_id)}}</h6>
+                <h6 id="down">Prefered trade genre: {{pair.second.genrePref}}</h6>
+                <button class='handleButton' (click)="accepted(pair.id)">Accept</button>
+                <button class='handleButton' (click)="declined(pair.id)">Decline</button>
+                <img src={{pair.second.img}} class="gameimg">
             </div>
         </td>
         <svg ng-if='first' height="90px" width="1500" id="lines">

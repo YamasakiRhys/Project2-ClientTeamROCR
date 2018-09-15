@@ -57,6 +57,7 @@
     padding: 10px;
     padding-top: 1px;
     padding-right: 25px;
+    animation: glideIn 1s
 }
 #tradeNotification:hover{
     background-color: rgb(196, 197, 104);
@@ -69,4 +70,9 @@
 @keyframes animatezoom {
     from {transform: scale(0)} 
     to {transform: scale(1)}
+}
+
+@keyframes glideIn{
+    0% {left: -800px;}
+    100%{left: 0px;}
 }

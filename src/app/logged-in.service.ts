@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { User } from './models/user';
 import { Injectable } from '@angular/core';
 import { LoginService } from './login.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,11 @@ export class LoggedInService {
   private static user: User;
   public navNum;
 
-  constructor(private router: Router, private login: LoginService) { }
+  constructor(private router: Router, private login: LoginService, private httpClient: HttpClient) { }
 
   setLoggedInUser(us) {
     LoggedInService.user = us;
-    this.navNum = us.role;
+    this.navNum = 2;
   }
 
   getLoggedInUser(): User {
@@ -23,7 +24,7 @@ export class LoggedInService {
   }
 
   getUserId(){
-    return LoggedInService.user.user_id;
+    return LoggedInService.user.userId;
   }
 
   checkLoggedInUser() {

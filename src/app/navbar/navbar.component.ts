@@ -21,17 +21,17 @@ export class NavbarComponent implements OnInit {
 
   //function called when the modal login button is clicked
   userLogin(username, password): void {
-    this.user = this.login.getUser(username, password)
+    this.login.getUser(username, password).subscribe(x => {this.user = x;
       if (this.user) {
         this.logged.setLoggedInUser(this.user);
-        this.login.changePage(this.user);
+        this.router.navigate(['/loggedin/user']);
       } else {
         alert('You have input an incorrect email/password combination');
         return;
       }
-      document.getElementById('lodmod').style.display='none'
+      document.getElementById('lodmod').style.display='none'});
   }
-  
+
   //when the dropdown is changed
   selectChangeHandler (event: any) {
     this.search.selectedGenre = event.target.value;

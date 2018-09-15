@@ -1,3 +1,4 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -43,7 +44,8 @@ import { HandleOffersScreenComponent } from './pages/handle-offers-screen/handle
     MatButtonModule,
     MatInputModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

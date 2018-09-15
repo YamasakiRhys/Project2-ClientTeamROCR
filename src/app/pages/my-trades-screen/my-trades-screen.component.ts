@@ -28,6 +28,10 @@ export class MyTradesScreenComponent implements OnInit {
       .then(() => { this.router.navigate(['/loggedin/user/mytrades']) });
   }
 
+  takeBack(){
+    
+  }
+
   backUser(): void{
     this.router.navigate(['/loggedin/user']);
   }
@@ -41,18 +45,18 @@ export class MyTradesScreenComponent implements OnInit {
     var trades = this.tradeServ.trades;
     this.noTrades = true;
     for (var i = 0; i < trades.length; i++) {
-      if (trades[i].user_id != this.logged.getUserId()) {
+      if (trades[i].account.userId != this.logged.getUserId()) {
         continue;
       }
       this.noTrades = false;
-      switch (trades[i].status) {
-        case 1:
+      switch (trades[i].status.statusId) {
+        case 3:
           this.myOpenTrades.push(trades[i]);
           break;
-        case 2:
+        case 1:
           this.myOfferedTrades.push(trades[i]);
           break;
-        case 3:
+        case 2:
           this.myPendingTrades.push(trades[i]);
           break;
       }

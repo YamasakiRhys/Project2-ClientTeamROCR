@@ -1,40 +1,54 @@
 import { Injectable } from '@angular/core';
 import { LoggedInService } from './logged-in.service';
+import { Trade } from './models/trade';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TradeService {
 
-  trades = [{ trade_id: 1, game_title: "Super Mario 64", genre: "Platformer", plot: "Princes bakes-a-lot gets captured for the nth time. Also paintings are alive now", img: "http://n64media.ign.com/n64/image/object/000/000606/602851.jpg", user_id: 3, genrePref: "RPG", status: 1 },
-  { trade_id: 2, game_title: "Touhou Riverbed Soul Saver", genre: "Bullet Hell", plot: "Something about a flood coming from a pocket dimention. I cant find the full translation...", img: "https://en.touhouwiki.net/images/thumb/4/44/RiverbedSoulSaverTitle.png/256px-RiverbedSoulSaverTitle.png", user_id: 2, genrePref: "Horror", status: 1 },
-  { trade_id: 3, game_title: "Smite", genre: "MOBA", plot: "Dieties fight but only like 5 of them are able to win because hi-rez cant balance for shit", img: "https://cdn.mmohuts.com/wp-content/uploads/2015/03/Smite_604x423.jpg", user_id: 3, genrePref: "MMO", status: 1 },
-  { trade_id: 4, game_title: "Sudoku", genre: "Puzzle", plot: "You put the numbers in the boxes....gg", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Sudoku_Puzzle_by_L2G-20050714_standardized_layout.svg/1200px-Sudoku_Puzzle_by_L2G-20050714_standardized_layout.svg.png", user_id: 2, genrePref: "platformer", status: 1 }];
-
+  trades;
   pairs = [];
 
   offer1Id;
   offer2Id;
   makingTrade = false;
 
-  constructor(private logged: LoggedInService) { }
+  constructor(private logged: LoggedInService, private httpClient: HttpClient) { }
+
+  //get all trades from the DB and set them
+  setTrades(){
+    return this.httpClient.get<Trade[]>('http://ec2-52-15-53-206.us-east-2.compute.amazonaws.com:8080/requests').subscribe(x => {
+      this.trades = x;
+    });
+  }
+
+  //print method for testing/debugging
+  printTrades() {
+    for (var i = 0; i < this.trades.length; i++) {
+      console.log(this.trades[i]);
+    }
+    console.log(this.pairs);
+    console.log(this.trades);
+  }
 
   //gets a list of genres from all the trades and filters out duplicates
   getGenres() {
     var genres = [];
     var isDupe = false;
     for (var i = 0; i < this.trades.length; i++) {
-      if (this.trades[i].status != 1) {
+      if (this.trades[i].status.statusId != 3) {
         continue;
       }
       for (var j = 0; j < genres.length; j++) {
-        if (this.trades[i].genre == genres[j]) {
+        if (this.trades[i].games.genre.genreType == genres[j]) {
           isDupe = true;
           break;
         }
       }
       if (!isDupe) {
-        genres.push(this.trades[i].genre);
+        genres.push(this.trades[i].games.genre.genreType);
       }
     }
     return genres;
@@ -50,6 +64,7 @@ export class TradeService {
     }
   }
 
+  //return a list of trades made by the given user ID
   getTradesById(user_id) {
     var userTrades = [];
     for (var i = 0; i < this.trades.length; i++) {
@@ -60,35 +75,53 @@ export class TradeService {
     return userTrades;
   }
 
+  //creates a request
   createTrade() {
+    this.printTrades();
     var offer1, offer2;
     for (var i = 0; i < this.trades.length; i++) {
       if (this.trades[i].trade_id == this.offer1Id) {
-        this.trades[i].status = 2;
+        this.trades[i].status.statusId = 2;
         offer1 = this.trades[i];
+        var first = i;
       }
       if (this.trades[i].trade_id == this.offer2Id) {
-        this.trades[i].status = 2;
+        this.trades[i].status.statusId = 2;
         offer2 = this.trades[i];
+        var second = i;
       }
     }
-    this.pairs.push([offer1, offer2]);
+    if (first < second) {
+      this.trades.splice(second, 1);
+      this.trades.splice(first, 1);
+    } else {
+      this.trades.splice(first, 1);
+      this.trades.splice(second, 1);
+    }
+    this.pairs.push({ id: this.pairs.length, first: offer1, second: offer2 });
   }
 
+  //gets all trades
   getPairs() {
     var userPairs = [];
     for (var i = 0; i < this.pairs.length; i++) {
-      if (this.logged.getUserId() == this.pairs[i][0].user_id) {
+      if (this.logged.getUserId() == this.pairs[i].first.user_id) {
         userPairs.push(this.pairs[i]);
       }
     }
     return userPairs;
   }
 
-  handleTrade(id1, id2, statusId) {
-    for (var i = 0; i < this.trades.length; i++){
-      if(this.trades[i].trade_id == id1 || this.trades[i].trade_id == id2){
-        this.trades[i].status = statusId;
+  //changes status on bothrequests in the trade depending on it was accepted/declined
+  handleTrade(pairId, statusId) {
+    this.printTrades();
+    for (var i = 0; i < this.pairs.length; i++) {
+      if (this.pairs[i].id == pairId) {
+        this.pairs[i].first.status.statusId = statusId;
+        this.trades.push(this.pairs[i].first);
+        this.pairs[i].second.status.statusId = statusId;
+        this.trades.push(this.pairs[i].second);
+        this.pairs.splice(i, 1);
       }
     }
   }

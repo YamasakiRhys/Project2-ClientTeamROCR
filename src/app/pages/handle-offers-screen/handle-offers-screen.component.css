@@ -9,12 +9,13 @@
     color: rgb(0, 0, 0);
     word-wrap:break-word;
 }
-#offerButton{
-    border: none;
-    height: 60px;
-    width: 150px;
-    background-color: rgb(121, 212, 255);
+.handleButton{
     border-radius: 12px;
+    height: 70px;
+    width: 180px;
+    background: linear-gradient(rgb(155, 188, 238), rgb(113, 139, 196));
+    border: 2px solid rgb(33, 45, 77);
+    margin: 6px;
 }
 #recentTitle{
     color: white;
@@ -56,11 +57,4 @@
     position: relative;
     right: 1230px;
     bottom: 80px;
-}
-.handleButton{
-    height: 70px;
-    width: 180px;
-    background: linear-gradient(rgb(155, 188, 238), rgb(113, 139, 196));
-    border: 2px solid rgb(33, 45, 77);
-    margin:20px;
 }

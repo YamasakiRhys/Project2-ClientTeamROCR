@@ -3,14 +3,14 @@
     <tr *ngFor='let trade of selectedTrades'>
         <td>
             <div class="gameinfo">
-                <h1 id="gameTitle">{{trade.game_title}}</h1>
-                <h3>Genre: {{trade.genre}}</h3>
+                <h1 id="gameTitle">{{trade.games.title}}</h1>
+                <h3>Genre: {{trade.games.genre.genreType}}</h3>
                 <br>
-                <h4>Plot: {{trade.plot}}</h4>
+                <h4>Plot: {{trade.games.plot}}</h4>
                 <br>
-                <h6>Trade created by {{getUsername(trade.user_id)}}</h6>
-                <h6 id="down">Prefered trade genre: {{trade.genrePref}}</h6>
-                <button *ngIf='trade.user_id !== logged.getUserId()' id="offerButton" (click)="makeOffer(trade.trade_id)">Make Offer</button>
+                <h6>Trade created by {{trade.account.username}}</h6>
+                <h6 id="down">"{{trade.description}}"</h6>
+                <button *ngIf='trade.account.userId !== logged.getUserId()' id="offerButton" (click)="makeOffer(trade.requestId)">Make Offer</button>
                 <img src={{trade.img}} class="gameimg">
             </div>
         </td>

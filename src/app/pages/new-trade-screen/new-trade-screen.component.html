@@ -1,3 +1,30 @@
+<div id="gamemod" class="modal">
+  <div id="myform" class="modal-content animate">
+    <div>
+      <span onclick="document.getElementById('gamemod').style.display='none'" class="close fade-box" title="Close Modal">&times;</span>
+    </div>
+    <div id="container">
+      <h2>Game Information</h2>
+      <h3>Title</h3>
+      <input type="text" placeholder="Title" #rTitle>
+      <h3>Genre</h3>
+      <select class="select" (change)="selectedGenre($event)">
+        <option selected value="none" disabled>select a genre</option>
+        <option *ngFor='let genre of this.search.allGenres' value='{{genre.genreId}}'>{{genre.genreType}}</option>
+      </select>
+      <h3>Plot</h3> 
+      <input type="text" placeholder="Plot" #rPlot>
+      <h3>Image</h3>
+      <label id="fileInput">
+        Enter Image File
+        <input type="file" (change)="fileSelected($event)">
+      </label>
+      <button id="submitGame" (click)="makeGame(rTitle.value,rPlot.value)" onclick="document.getElementById('gamemod').style.display='none'">Submit game</button>
+    </div>
+  </div>
+</div>
+
+
 <br>
 <br>
 <br>
@@ -5,18 +32,14 @@
   <h1>Create a Trade Request</h1>
   <div class="infoSection">
     <h2>Game Information</h2>
-    <h3>Title</h3>
-      <input type="text" placeholder="Username" #rTitle>
-    <h3>Genre</h3>
-    <input type="text" placeholder="Password" #rGenre>
-    <h3>Plot</h3>
-      <input type="text" placeholder="Username" #rPlot>
-    <h3>Image link</h3>
-    <input type="text" placeholder="Password" #rImage>
+    <h3>Game</h3>
+    <button id="gameButton" onclick="document.getElementById('gamemod').style.display='block'">Add Game to list</button>
+    <select class="select" (change)="selectedGame($event)" >
+      <option selected value="none" disabled>select a genre</option>
+      <option *ngFor='let game of this.search.allGames' value='{{game.gameId}}'>{{game.title}}</option>
+    </select>
+    <h3>Description</h3>
+    <input type="text" placeholder="Genre" #rDesc>
   </div>
-  <div class="infoSection">
-    <h2>Genre Preference</h2>
-    <input type="text" placeholder="Genre" #rGenrePref>
-  </div>
-  <button (click)="makeTrade(rTitle.value, rGenre.value, rPlot.value, rImage.value, rGenrePref.value)" id="createButton">Create</button>
+  <button (click)="makeTrade(rDesc.value)" id="createButton">Create</button>
 </div>

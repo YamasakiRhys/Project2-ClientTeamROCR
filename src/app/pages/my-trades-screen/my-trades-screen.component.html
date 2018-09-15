@@ -24,13 +24,13 @@
     <tr *ngFor='let trade of myOpenTrades'>
         <td>
             <div class="gameinfo">
-                <h1 id="gameTitle">{{trade.game_title}}</h1>
-                <h3>Genre: {{trade.genre}}</h3>
+                <h1 id="gameTitle">{{trade.games.title}}</h1>
+                <h3>Genre: {{trade.games.genre.genreType}}</h3>
                 <br>
-                <h4>Plot: {{trade.plot}}</h4>
+                <h4>Plot: {{trade.games.plot}}</h4>
                 <br>
-                <h6>Trade created by {{getUsername(trade.user_id)}}</h6>
-                <h6 id="down">Prefered trade genre: {{trade.genrePref}}</h6>
+                <h6>Trade created by {{trade.account.username}}</h6>
+                <h6 id="down">{{trade.description}}</h6>
                 <button (click)="deleteTrade(trade.trade_id)" id="deleteButton">Remove Trade</button>
                 <img src={{trade.img}} class="gameimg">
             </div>
@@ -63,14 +63,14 @@
     <tr *ngFor='let trade of myOfferedTrades'>
         <td>
             <div class="gameinfo">
-                <h1 id="gameTitle">{{trade.game_title}}</h1>
-                <h3>Genre: {{trade.genre}}</h3>
+                <h1 id="gameTitle">{{trade.games.title}}</h1>
+                <h3>Genre: {{trade.games.genre.genreType}}</h3>
                 <br>
-                <h4>Plot: {{trade.plot}}</h4>
+                <h4>Plot: {{trade.games.plot}}</h4>
                 <br>
-                <h6>Trade created by {{getUsername(trade.user_id)}}</h6>
-                <h6 id="down">Prefered trade genre: {{trade.genrePref}}</h6>
-                <button id="deleteButton">Take back offer not functional</button>
+                <h6>Trade created by {{trade.account.username}}</h6>
+                <h6 id="down">{{trade.description}}</h6>
+                <button id="deleteButton" (click) = "takeBack()">Take back offer not functional</button>
                 <img src={{trade.img}} class="gameimg">
             </div>
         </td>
@@ -102,13 +102,13 @@
     <tr *ngFor='let trade of myPendingTrades'>
         <td>
             <div class="gameinfo">
-                <h1 id="gameTitle">{{trade.game_title}}</h1>
-                <h3>Genre: {{trade.genre}}</h3>
+                <h1 id="gameTitle">{{trade.games.title}}</h1>
+                <h3>Genre: {{trade.games.genre.genreType}}</h3>
                 <br>
-                <h4>Plot: {{trade.plot}}</h4>
+                <h4>Plot: {{trade.games.plot}}</h4>
                 <br>
-                <h6>Trade created by {{getUsername(trade.user_id)}}</h6>
-                <h6 id="down">Prefered trade genre: {{trade.genrePref}}</h6>
+                <h6>Trade created by {{trade.account.username}}</h6>
+                <h6 id="down">{{trade.description}}</h6>
                 <img src={{trade.img}} class="gameimg">
             </div>
         </td>

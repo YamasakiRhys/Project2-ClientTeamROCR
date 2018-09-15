@@ -22,11 +22,8 @@ export class RecentTradesComponent implements OnInit {
   }
 
   makeOffer(trade_id){
-    console.log(this.tradeServ.trades);
     this.tradeServ.offer1Id = trade_id;
-    console.log(this.tradeServ.trades);
     this.tradeServ.makingTrade = true;
-    console.log(this.tradeServ.trades);
     this.router.navigate(['/loggedin/user/trading']);
   }
 

@@ -19,13 +19,13 @@ export class HandleOffersScreenComponent implements OnInit {
     return this.login.getUsername(id);
   }
 
-  accepted(pair){
-    this.tradeServ.handleTrade(pair[0].trade_id, pair[1].trade_id, 3);
+  accepted(pairId){
+    this.tradeServ.handleTrade(pairId, 3);
     this.router.navigate(['/loggedin/user']);
   }
 
-  declined(pair){
-    this.tradeServ.handleTrade(pair[0].trade_id, pair[1].trade_id, 1);
+  declined(pairId){
+    this.tradeServ.handleTrade(pairId, 1);
     this.router.navigate(['/loggedin/user']);
   }
 

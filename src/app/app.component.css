@@ -13,20 +13,20 @@ svg { position: fixed;
   }
   
   #c3 {
-    stroke-dasharray: 50%;
-    animation: xrot2 30s infinite linear normal;
+    stroke-dasharray: 40%;
+    animation: xrot2 24s infinite linear normal;
   }
   #c4 { 
     stroke-dasharray: 35%;
-    animation: xrot 20s infinite linear normal;
+    animation: xrot 21s infinite linear normal;
   }
   #c5 { 
-    stroke-dasharray: 20%;
-    animation: xrot2 10s infinite linear normal;
+    stroke-dasharray: 30%;
+    animation: xrot2 18s infinite linear normal;
   }
   #c6 { 
-    stroke-dasharray: 5%;
-    animation: xrot 5s infinite linear normal;
+    stroke-dasharray: 25%;
+    animation: xrot 15s infinite linear normal;
   }
   
   @keyframes xrot {
