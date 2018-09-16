@@ -13,7 +13,7 @@ export class UserScreenComponent implements OnInit {
 
   public userPairs;
 
-  constructor(private login: LoginService, private logged: LoggedInService, private tradeServ: TradeService, private router: Router) { }
+  constructor(private login: LoginService, public logged: LoggedInService, private tradeServ: TradeService, private router: Router) { }
 
   handleOffers(){
     this.router.navigate(['/loggedin/user/handleoffers']);
