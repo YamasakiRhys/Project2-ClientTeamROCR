@@ -25,7 +25,7 @@
     <li *ngIf='this.logged.navNum===1' (click)='getUsers()'>Get Users</li>
     <select *ngIf='this.logged.navNum!<=2' id="genreSelect" (change)="selectChangeHandler($event)">
         <option selected value="none">select a genre</option>
-        <option *ngFor='let genre of this.tradeServ.getGenres()' value='{{genre}}'>{{genre}}</option>
+        <option *ngFor='let genre of this.tradeServ.getGenres()' value='{{genre.genreId}}'>{{genre.genreType}}</option>
     </select>
     <li *ngIf='this.logged.navNum!<=2' (click)='viewMyTrades()'>my trades</li>
     <li style="float:right" *ngIf='this.logged.navNum!<=2' (click)='logged.logout()'>Logout</li>

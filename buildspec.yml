@@ -11,9 +11,9 @@ phases:
            - ng build --prod
    post_build:
         commands:
-           - aws s3 sync --delete dist/Project2-ClientTeamROCR s3://project2images
+           - aws s3 sync --delete dist/project2 s3://project2images
 artifacts:
    files:
        - '**/*'
-   base-directory: 'Project2-ClientTeamROCR*'
-   discard-paths: yes 
+   base-directory: 'project2*'
+   discard-paths: yes

@@ -16,13 +16,10 @@ export class HomeScreenComponent implements OnInit {
 
   users: User[];
 
-  constructor(private login: LoginService, private logged: LoggedInService, private tradeServ: TradeService, private search: SearchService) { }
+  constructor(private login: LoginService, public logged: LoggedInService, private tradeServ: TradeService, private search: SearchService) { }
 
   ngOnInit() {
     this.logged.navNum = 9;
-    this.login.getAccounts()
-    this.tradeServ.setTrades();
-    this.search.setAllGenres();
-    this.search.setAllGames();
+    //this.search.setAllLocations();
   }
 }

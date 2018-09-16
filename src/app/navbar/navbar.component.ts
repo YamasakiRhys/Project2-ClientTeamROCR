@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
   user: User;
   genres = [];
 
-  constructor(private login: LoginService, private router: Router, private logged: LoggedInService, private tradeServ: TradeService, private search: SearchService) { }
+  constructor(private login: LoginService, private router: Router, public logged: LoggedInService, private tradeServ: TradeService, private search: SearchService) { }
 
   //function called when the modal login button is clicked
   userLogin(username, password): void {
@@ -34,9 +34,18 @@ export class NavbarComponent implements OnInit {
 
   //when the dropdown is changed
   selectChangeHandler (event: any) {
+    console.log(event.target.value);
     this.search.selectedGenre = event.target.value;
+    console.log(this.search.selectedGenre);
     this.router.navigate(['/loggedin/manager'])
     .then(()=>{this.router.navigate(['/loggedin/user'])});
+  }
+
+  updateAll(){
+    this.login.getAccounts();
+    this.tradeServ.setTrades();
+    this.search.setAllGenres();
+    this.search.setAllGames();
   }
 
   register(): void{
@@ -47,6 +56,7 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/']);
   }
   backUser(): void{
+    this.updateAll();
     this.router.navigate(['/loggedin/user']);
   }
 
@@ -63,6 +73,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.updateAll();
   }
 
 }
