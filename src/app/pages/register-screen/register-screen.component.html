@@ -31,12 +31,12 @@
     <h3>City</h3>
     <select class="select" (change)="selectCity($event)">
       <option selected value="none" disabled>select a city</option>
-      <option *ngFor='let city of this.search.allCities' value='{{city.cityId}}'>{{city.city}}</option>
+      <option *ngFor='let city of this.search.allCities' value='{{city.cityId}}'>{{city.cityName}}</option>
   </select>
     <h3>Street</h3>
     <input type="text" placeholder="Street" #rStreet>
     <h3>Phone Number</h3>
     <input type="text" placeholder="Phone Number" #rPhone>
   </div>
-  <button id="createButton" (click)="register(rUsername.value, rPassword.value)">Create</button>
+  <button id="createButton" (click)="register(rUsername.value, rPassword.value, rFname.value, rLname.value, rEmail.value, rStreet.value, rPhone.value)">Create</button>
 </div>

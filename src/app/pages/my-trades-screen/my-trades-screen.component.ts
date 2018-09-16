@@ -12,7 +12,7 @@ import { LoginService } from '../../login.service';
 export class MyTradesScreenComponent implements OnInit {
 
   myOpenTrades = [];
-  myOfferedTrades = [];
+  myApprovedTrades = [];
   myPendingTrades = [];
   noTrades = false;
 
@@ -22,17 +22,15 @@ export class MyTradesScreenComponent implements OnInit {
     return this.login.getUsername(id);
   }
 
-  deleteTrade(trade_id) {
-    this.tradeServ.deleteTrade(trade_id);
-    this.router.navigate(['/loggedin/user'])
-      .then(() => { this.router.navigate(['/loggedin/user/mytrades']) });
+  deleteTrade(requestId) {
+    this.tradeServ.deleteTrade(requestId);
   }
 
-  takeBack(){
-    
+  takeBack(tradeId) {
+    this.tradeServ.takeBack(tradeId);
   }
 
-  backUser(): void{
+  backUser(): void {
     this.router.navigate(['/loggedin/user']);
   }
 
@@ -40,25 +38,23 @@ export class MyTradesScreenComponent implements OnInit {
   ngOnInit() {
     this.logged.navNum = 11;
     this.myOpenTrades = [];
-    this.myOfferedTrades = [];
+    this.myApprovedTrades = [];
     this.myPendingTrades = [];
     var trades = this.tradeServ.trades;
     this.noTrades = true;
     for (var i = 0; i < trades.length; i++) {
-      if (trades[i].account.userId != this.logged.getUserId()) {
+      if (trades[i].account.userId != this.logged.getUserId() || trades[i].statusId != 3) {
         continue;
       }
       this.noTrades = false;
-      switch (trades[i].status.statusId) {
-        case 3:
-          this.myOpenTrades.push(trades[i]);
-          break;
-        case 1:
-          this.myOfferedTrades.push(trades[i]);
-          break;
-        case 2:
-          this.myPendingTrades.push(trades[i]);
-          break;
+      this.myOpenTrades.push(trades[i]);
+    }
+    var pairs = this.tradeServ.pairs;
+    for (i = 0; i < pairs.length; i++) {
+      if (pairs[i].statusId == 2 && pairs[i].givenOffer.account.userId == this.logged.getUserId()) {
+        this.myPendingTrades.push(pairs[i]);
+      } else if (pairs[i].statusId == 1) {
+        this.myApprovedTrades.push(pairs[i]);
       }
     }
   }

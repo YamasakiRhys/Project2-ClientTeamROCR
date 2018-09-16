@@ -43,9 +43,9 @@ export class NavbarComponent implements OnInit {
 
   updateAll(){
     this.login.getAccounts();
-    this.tradeServ.setTrades();
-    this.search.setAllGenres();
+    this.tradeServ.setRequests();
     this.search.setAllGames();
+    this.tradeServ.setTrades();
   }
 
   register(): void{
@@ -73,6 +73,9 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(!this.logged.getLoggedInUser()){
+      this.backHome();
+    }
     this.updateAll();
   }
 

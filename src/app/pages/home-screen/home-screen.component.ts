@@ -20,6 +20,7 @@ export class HomeScreenComponent implements OnInit {
 
   ngOnInit() {
     this.logged.navNum = 9;
-    //this.search.setAllLocations();
+    this.search.setAllGenres();
+    this.search.setAllLocations();
   }
 }

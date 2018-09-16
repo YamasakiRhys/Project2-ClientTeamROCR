@@ -21,13 +21,12 @@ export class TradingScreenComponent implements OnInit {
   }
 
   makeOffer(trade_id){
-    console.log(trade_id);
     this.tradeServ.offer2Id = trade_id;
     this.tradeServ.createTrade();
-    this.router.navigate(['/loggedin/user']);
   }
 
   ngOnInit() {
+    this.logged.navNum = 11;
     this.userTrades = this.tradeServ.getTradesById(this.logged.getUserId());
   }
 }
