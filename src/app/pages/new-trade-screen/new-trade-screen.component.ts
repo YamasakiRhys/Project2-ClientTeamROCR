@@ -15,7 +15,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NewTradeScreenComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient, private tradeServ: TradeService, private logged: LoggedInService, private login: LoginService, private router: Router,private search: SearchService) { }
+  constructor(private httpClient: HttpClient, private tradeServ: TradeService, private logged: LoggedInService, private login: LoginService, private router: Router,public search: SearchService) { }
 
   selectedFile: File = null;
   filePath;
@@ -35,27 +35,10 @@ export class NewTradeScreenComponent implements OnInit {
   }
 
   makeGame(rTitle, rPlot){
-    if(!rTitle){
+    if(!rTitle || !rPlot || !this.selectedFile || !this.genre){
       alert("Please fill in all boxes and upload an image");
-      console.log("test");
       return;
     }
-    if(!rPlot){
-      alert("Please fill in all boxes and upload an image");
-      console.log("test");
-      return;
-    }
-    if(!this.selectedFile){
-      alert("Please fill in all boxes and upload an image");
-      console.log("test");
-      return;
-    }
-    if(!this.genre){
-      alert("Please fill in all boxes and upload an image");
-      console.log("test");
-      return;
-    }
-
     this.makePath();
     this.uploadImage(this.selectedFile);
     var game = {
@@ -65,7 +48,8 @@ export class NewTradeScreenComponent implements OnInit {
       genreId: this.genre
     }
     console.log(game);
-    this.httpClient.post('http://ec2-52-15-53-206.us-east-2.compute.amazonaws.com:8080/games', game).subscribe(x => {this.search.setAllGames();});
+    this.httpClient.post('http://ec2-52-15-53-206.us-east-2.compute.amazonaws.com:8080/games', game).subscribe(x => {
+      this.search.setAllGames();});
   }
 
   //add the new trade to the DB (array for now)
