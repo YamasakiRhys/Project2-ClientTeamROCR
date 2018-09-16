@@ -12,7 +12,7 @@ export class SearchService {
   allGames = [];
   allCountries = [{countryId: 1, country: "America"},{countryId: 2, country: "Canada"},{countryId: 3, country: "Mexico"},{countryId: 4, country: "Japan"}];
   allStates = [{stateId: 1, state: "Minnesota"},{stateId: 2, state: "New York"},{stateId: 3, state: "California"},{stateId: 4, state: "Texas"},{stateId: 5, state: "Florida"}];
-  //allCities = [{cityId: , city: ""}];
+  allCities = [{cityId: 1, city: "Wichita"},{cityId: 2, city: "San Bernardino"},{cityId: 3, city: "New York"},{cityId: 4, city: "Minneapolis"},{cityId: 5, city: "Honolulu"}];
 
   constructor(private httpClient: HttpClient) { }
 
@@ -22,8 +22,8 @@ export class SearchService {
       this.allGenres = x;
     })
   }
-
-  /*setAllLocations(){
+/*
+  setAllLocations(){
     this.httpClient.get<String[]>('http://ec2-52-15-53-206.us-east-2.compute.amazonaws.com:8080/countries').subscribe(x => {
       this.allCountries = x;
     })
