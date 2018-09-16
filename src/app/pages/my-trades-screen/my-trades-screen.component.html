@@ -32,7 +32,7 @@
                 <h6>Trade created by {{trade.account.username}}</h6>
                 <h6 id="down">{{trade.description}}</h6>
                 <button (click)="deleteTrade(trade.trade_id)" id="deleteButton">Remove Trade</button>
-                <img src={{trade.img}} class="gameimg">
+                <img src={{trade.games.image}} class="gameimg">
             </div>
         </td>
     </tr>
@@ -71,7 +71,7 @@
                 <h6>Trade created by {{trade.account.username}}</h6>
                 <h6 id="down">{{trade.description}}</h6>
                 <button id="deleteButton" (click) = "takeBack()">Take back offer not functional</button>
-                <img src={{trade.img}} class="gameimg">
+                <img src={{trade.games.image}} class="gameimg">
             </div>
         </td>
     </tr>
@@ -109,7 +109,7 @@
                 <br>
                 <h6>Trade created by {{trade.account.username}}</h6>
                 <h6 id="down">{{trade.description}}</h6>
-                <img src={{trade.img}} class="gameimg">
+                <img src={{trade.games.image}} class="gameimg">
             </div>
         </td>
     </tr>
