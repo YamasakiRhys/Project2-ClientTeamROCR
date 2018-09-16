@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoggedInService } from '../../logged-in.service';
 import { LoginService } from '../../login.service';
 import { Router } from '@angular/router';
+import {SearchService} from '../../search.service';
 
 @Component({
   selector: 'app-register-screen',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterScreenComponent implements OnInit {
 
-  constructor(private logged: LoggedInService, private login: LoginService, private router: Router) { }
+  constructor(private logged: LoggedInService, private login: LoginService, private router: Router, private search: SearchService) { }
 
   //creates a new user
   register(uname, pass) {
