@@ -19,15 +19,24 @@
     <h3>Email</h3>
     <input type="text" placeholder="Email" #rEmail>
     <h3>Country</h3>
-    <input type="text" placeholder="Country" #rCountry>
+    <select class="select" (change)="selectCountry($event)">
+      <option selected value="none" disabled>select a country</option>
+      <option *ngFor='let country of this.search.allCountries' value='{{country.countryId}}'>{{country.country}}</option>
+  </select>
     <h3>State</h3>
-    <input type="text" placeholder="State" #rState>
+    <select class="select" (change)="selectState($event)">
+      <option selected value="none" disabled>select a state</option>
+      <option *ngFor='let state of this.search.allStates' value='{{state.stateId}}'>{{state.state}}</option>
+  </select>
     <h3>City</h3>
-    <input type="text" placeholder="City" #rCity>
+    <select class="select" (change)="selectCity($event)">
+      <option selected value="none" disabled>select a city</option>
+      <option *ngFor='let city of this.search.allCities' value='{{city.cityId}}'>{{city.cityName}}</option>
+  </select>
     <h3>Street</h3>
     <input type="text" placeholder="Street" #rStreet>
     <h3>Phone Number</h3>
     <input type="text" placeholder="Phone Number" #rPhone>
   </div>
-  <button id="createButton" (click)="register(rUsername.value, rPassword.value)">Create</button>
+  <button id="createButton" (click)="register(rUsername.value, rPassword.value, rFname.value, rLname.value, rEmail.value, rStreet.value, rPhone.value)">Create</button>
 </div>

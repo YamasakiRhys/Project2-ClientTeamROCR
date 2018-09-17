@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoggedInService } from '../../logged-in.service';
 import { LoginService } from '../../login.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users-list-screen',
@@ -12,7 +10,7 @@ export class UsersListScreenComponent implements OnInit {
 
   users=[];
 
-  constructor(private logged: LoggedInService, private login: LoginService, private router: Router) { }
+  constructor(private login: LoginService) { }
 
   ngOnInit() {
     this.users = this.login.getUsers();

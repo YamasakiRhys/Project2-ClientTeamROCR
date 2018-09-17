@@ -8,7 +8,7 @@
       <h3>Title</h3>
       <input type="text" placeholder="Title" #rTitle>
       <h3>Genre</h3>
-      <select class="select" (change)="selectedGenre($event)">
+      <select id="select" (change)="selectedGenre($event)">
         <option selected value="none" disabled>select a genre</option>
         <option *ngFor='let genre of this.search.allGenres' value='{{genre.genreId}}'>{{genre.genreType}}</option>
       </select>
@@ -33,11 +33,12 @@
   <div class="infoSection">
     <h2>Game Information</h2>
     <h3>Game</h3>
-    <button id="gameButton" onclick="document.getElementById('gamemod').style.display='block'">Add Game to list</button>
-    <select class="select" (change)="selectedGame($event)" >
-      <option selected value="none" disabled>select a genre</option>
+    <select id="genreselect" (change)="selectedGame($event)" >
+      <option selected value="none" disabled>select a game</option>
       <option *ngFor='let game of this.search.allGames' value='{{game.gameId}}'>{{game.title}}</option>
     </select>
+    <br>
+    <button id="gameButton" onclick="document.getElementById('gamemod').style.display='block'">Add Game to list</button>
     <h3>Description</h3>
     <input type="text" placeholder="Genre" #rDesc>
   </div>
