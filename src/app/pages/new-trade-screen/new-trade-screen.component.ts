@@ -86,10 +86,10 @@ export class NewTradeScreenComponent implements OnInit {
   //uploads the given image file to S3bucket
   uploadImage(img) {
     var s3 = new AWS.S3({apiVersion: '2006-03-01'})
-    const bucket = new S3(
+    const bucket = new AWS.S3(
       {
-        accessKeyId: s3.config.credentials.accessKeyId,
-        secretAccessKey: s3.config.credentials.secretAccessKey,
+        accessKeyId: s3.config.accessKeyId,
+        secretAccessKey: s3.config.secretAccessKey,
         region: 'us-east-1'
       }
     );
