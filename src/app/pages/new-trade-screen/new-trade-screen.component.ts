@@ -3,10 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { LoggedInService } from '../../logged-in.service';
 import { Router } from '@angular/router';
 import { TradeService } from '../../trade.service';
-import * as AWS from 'aws-sdk/global';
+import * as AWS from 'aws-sdk/';
 import * as S3 from 'aws-sdk/clients/s3';
 import { SearchService } from '../../search.service';
 import { HttpClient } from '@angular/common/http';
+import { SecretsManager } from 'aws-sdk';
+
 
 @Component({
   selector: 'app-new-trade-screen',
@@ -83,10 +85,11 @@ export class NewTradeScreenComponent implements OnInit {
   
   //uploads the given image file to S3bucket
   uploadImage(img) {
+    var s3 = new AWS.S3({apiVersion: '2006-03-01'})
     const bucket = new S3(
       {
-        accessKeyId: environment.Access_key_id,
-        secretAccessKey: environment.secret_access_key,
+        accessKeyId: s3.config.accessKeyId,
+        secretAccessKey: s3.config.secretAccessKey,
         region: 'us-east-2'
       }
     );
