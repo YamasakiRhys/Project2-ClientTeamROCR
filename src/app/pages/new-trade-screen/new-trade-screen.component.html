@@ -15,10 +15,7 @@
       <h3>Plot</h3> 
       <input type="text" placeholder="Plot" #rPlot>
       <h3>Image</h3>
-      <label id="fileInput">
-        Enter Image File
         <input type="text" #rImage placeholder="image URL">
-      </label>
       <button id="submitGame" (click)="makeGame(rTitle.value,rPlot.value, rImage.value)" onclick="document.getElementById('gamemod').style.display='none'">Submit game</button>
     </div>
   </div>
