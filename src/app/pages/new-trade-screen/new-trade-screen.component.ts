@@ -88,11 +88,13 @@ export class NewTradeScreenComponent implements OnInit {
     var s3 = new AWS.S3({apiVersion: '2006-03-01'})
     const bucket = new S3(
       {
-        accessKeyId: s3.config.accessKeyId,
+        accessKeyId: s3.config.secretAccessKey,
         secretAccessKey: s3.config.secretAccessKey,
         region: 'us-east-2'
       }
     );
+
+    console.log(bucket);
 
     const params = {
       Bucket: 'project-rocr-images',
