@@ -88,8 +88,8 @@ export class NewTradeScreenComponent implements OnInit {
     var s3 = new AWS.S3({apiVersion: '2006-03-01'})
     const bucket = new AWS.S3(
       {
-        accessKeyId: s3.config.accessKeyId,
-        secretAccessKey: s3.config.secretAccessKey,
+        accessKeyId: environment.access_key_id,
+        secretAccessKey: environment.secret_access_key,
         region: 'us-east-1'
       }
     );
