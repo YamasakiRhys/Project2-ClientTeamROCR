@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { LoggedInService } from '../../logged-in.service';
 import { Router } from '@angular/router';
@@ -6,6 +7,7 @@ import * as AWS from 'aws-sdk/global';
 import * as S3 from 'aws-sdk/clients/s3';
 import { SearchService } from '../../search.service';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-new-trade-screen',
@@ -84,8 +86,8 @@ export class NewTradeScreenComponent implements OnInit {
   uploadImage(img) {
     const bucket = new S3(
       {
-        accessKeyId: '',
-        secretAccessKey: '',
+        accessKeyId: environment.Access_key_id,
+        secretAccessKey: environment.secret_access_key,
         region: 'us-east-2'
       }
     );

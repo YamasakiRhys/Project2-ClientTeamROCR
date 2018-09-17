@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  Access_key_id: "",
+  secret_access_key: "",
 };
