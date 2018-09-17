@@ -8,7 +8,7 @@ import * as S3 from 'aws-sdk/clients/s3';
 import { SearchService } from '../../search.service';
 import { HttpClient } from '@angular/common/http';
 import { SecretsManager, Credentials } from 'aws-sdk';
-
+require('dotenv').config();
 
 @Component({
   selector: 'app-new-trade-screen',
