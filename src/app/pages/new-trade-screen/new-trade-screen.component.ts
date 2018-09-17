@@ -7,7 +7,6 @@ import * as AWS from 'aws-sdk/global';
 import * as S3 from 'aws-sdk/clients/s3';
 import { SearchService } from '../../search.service';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-new-trade-screen',
