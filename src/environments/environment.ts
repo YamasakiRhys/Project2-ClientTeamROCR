@@ -5,9 +5,7 @@
 export const environment = {
   production: true,
   apiUrl: "http://ec2-52-15-53-206.us-east-2.compute.amazonaws.com:8080/",
-  account: "http://ec2-52-15-53-206.us-east-2.compute.amazonaws.com:8080/account",
-  access_key_id: "access_key_id",
-  secret_access_key: "secret_access_key"
+  account: "http://ec2-52-15-53-206.us-east-2.compute.amazonaws.com:8080/account"
 };
 
 /*
