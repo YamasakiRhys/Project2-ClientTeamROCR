@@ -20,7 +20,6 @@ export class UserScreenComponent implements OnInit {
 
   ngOnInit() {
     this.logged.navNum = 2;
-    console.log(this.logged.getLoggedInUser());
     this.userPairs = this.tradeServ.getPairs();
   }
 

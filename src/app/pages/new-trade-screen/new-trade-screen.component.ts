@@ -67,6 +67,7 @@ export class NewTradeScreenComponent implements OnInit {
       this.router.navigate(['/loggedin/user']);
     });
   }
+  
   //Creates a name for the image file
   makePath() {
     var text = "";
@@ -92,8 +93,6 @@ export class NewTradeScreenComponent implements OnInit {
         region: 'us-east-1'
       }
     );
-
-    console.log(bucket);
 
     const params = {
       Bucket: 'project-rocr',

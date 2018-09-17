@@ -34,9 +34,7 @@ export class NavbarComponent implements OnInit {
 
   //when the dropdown is changed
   selectChangeHandler (event: any) {
-    console.log(event.target.value);
     this.search.selectedGenre = event.target.value;
-    console.log(this.search.selectedGenre);
     this.router.navigate(['/loggedin/manager'])
     .then(()=>{this.router.navigate(['/loggedin/user'])});
   }
