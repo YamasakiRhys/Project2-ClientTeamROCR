@@ -29,7 +29,6 @@ li:hover {
 }
 #genreSelect{
     margin-top: 10px;
-    -moz-border-radius: 15px;
     border-radius: 8px;
     background-color: rgb(2, 35, 61);
     color: white;

@@ -3,21 +3,21 @@
         <td>
             <div class="gameinfo">
                 <h1 class="offer">Offer for</h1>
-                <h2 id="gameTitle">{{pair.first.game_title}}</h2>
+                <h2 id="gameTitle">{{pair.requestOffer.games.title}}</h2>
                 <svg width="100%" height="50px">
                     <path d="M 0 0 l 800 000" stroke-width="10" stroke="black" />
                 </svg>
                 <h1 class="offer">Offer</h1>
-                <h2 id="gameTitle2">{{pair.second.game_title}}</h2>
-                <h3>Genre: {{pair.second.genre}}</h3>
+                <h2 id="gameTitle2">{{pair.givenOffer.games.title}}</h2>
+                <h3>Genre: {{pair.givenOffer.games.genre.genreType}}</h3>
                 <br>
-                <h4>Plot: {{pair.second.plot}}</h4>
+                <h4>Plot: {{pair.givenOffer.games.plot}}</h4>
                 <br>
-                <h6>Offer from by {{getUsername(pair.second.user_id)}}</h6>
-                <h6 id="down">Prefered trade genre: {{pair.second.genrePref}}</h6>
-                <button class='handleButton' (click)="accepted(pair.id)">Accept</button>
-                <button class='handleButton' (click)="declined(pair.id)">Decline</button>
-                <img src={{pair.second.img}} class="gameimg">
+                <h6>Offer from by {{pair.givenOffer.account.username}}</h6>
+                <h6 id="down">{{pair.givenOffer.description}}</h6>
+                <button class='handleButton' (click)="accepted(pair.tradeId)">Accept</button>
+                <button class='handleButton' (click)="declined(pair.tradeId)">Decline</button>
+                <img src={{pair.givenOffer.games.image}} class="gameimg">
             </div>
         </td>
         <svg ng-if='first' height="90px" width="1500" id="lines">

@@ -32,12 +32,21 @@
     border: 2px solid rgb(33, 45, 77);
 }
 input{
-    -moz-border-radius: 15px;
     border-radius: 8px;
     border:solid 1px black;
     padding:5px;
 }
-
+.select{
+    margin-top: 10px;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    border:solid 1px black;
+    padding:5px;
+    height:40px;
+    width: 500px;
+    margin-bottom: 15px;
+}
 input:focus{
     animation: glow 1600ms ease-out infinite
 }

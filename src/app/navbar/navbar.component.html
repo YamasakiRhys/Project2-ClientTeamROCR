@@ -19,7 +19,6 @@
 
 <ul>
     <li *ngIf='this.logged.navNum===2' (click)='newTrade()'>Make a Request</li>
-    <li *ngIf='this.logged.navNum===2' onclick="document.getElementById('delmod').style.display='block'">Deactivate account</li>
     <li style='float:right' *ngIf='this.logged.navNum===9' onclick="document.getElementById('lodmod').style.display='block'">Login</li>
     <li style='float:right' *ngIf='this.logged.navNum===9' (click)='register()'>Register</li>
     <li *ngIf='this.logged.navNum===1' (click)='getUsers()'>Get Users</li>

@@ -20,7 +20,7 @@ export class RecentTradesComponent implements OnInit {
   getUsername(id){
     return this.login.getUsername(id);
   }
-
+  //sets up the creation of a trade
   makeOffer(trade_id){
     this.tradeServ.offer1Id = trade_id;
     this.tradeServ.makingTrade = true;

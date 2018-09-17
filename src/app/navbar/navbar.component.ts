@@ -26,7 +26,7 @@ export class NavbarComponent implements OnInit {
         this.logged.setLoggedInUser(this.user);
         this.router.navigate(['/loggedin/user']);
       } else {
-        alert('You have input an incorrect email/password combination');
+        alert('You have input an incorrect username/password combination');
         return;
       }
       document.getElementById('lodmod').style.display='none'});
@@ -43,9 +43,9 @@ export class NavbarComponent implements OnInit {
 
   updateAll(){
     this.login.getAccounts();
-    this.tradeServ.setTrades();
-    this.search.setAllGenres();
+    this.tradeServ.setRequests();
     this.search.setAllGames();
+    this.tradeServ.setTrades();
   }
 
   register(): void{
@@ -73,6 +73,9 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(!this.logged.getLoggedInUser()){
+      this.backHome();
+    }
     this.updateAll();
   }
 
