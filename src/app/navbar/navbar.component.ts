@@ -74,7 +74,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     if(!this.logged.getLoggedInUser()){
-      this.backHome();
+      //this.backHome();
     }
     this.updateAll();
   }
