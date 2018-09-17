@@ -87,8 +87,8 @@ export class NewTradeScreenComponent implements OnInit {
   uploadImage(img) {
     const bucket = new S3(
       {
-        accessKeyId: process.env.accessKeyId,
-        secretAccessKey: process.env.secretAccessKey,
+        accessKeyId: '',
+        secretAccessKey: '',
         region: 'us-east-1'
       }
     );
