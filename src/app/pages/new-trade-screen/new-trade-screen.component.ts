@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { LoggedInService } from '../../logged-in.service';
 import { Router } from '@angular/router';
@@ -84,8 +85,8 @@ export class NewTradeScreenComponent implements OnInit {
   uploadImage(img) {
     const bucket = new S3(
       {
-        accessKeyId: '',
-        secretAccessKey: '',
+        accessKeyId: environment.access_key_id,
+        secretAccessKey: environment.secret_access_key,
         region: 'us-east-2'
       }
     );
