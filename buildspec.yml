@@ -11,8 +11,6 @@ phases:
            - npm install -g @angular/cli
    build:
        commands:
-           - $env:access_key_id
-           - $env:secret_access_key
            - echo Build started on `date`
            - ng build --prod
    post_build:
