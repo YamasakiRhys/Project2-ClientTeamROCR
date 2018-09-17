@@ -56,12 +56,10 @@ export class RegisterScreenComponent implements OnInit {
       stateId: this.selectedState,
       countryId: this.selectedCountry
     }
-    console.log(user);
     this.reg.createAccount(user);
   }
 
   ngOnInit() {
-    console.log(this.login.users);
     this.logged.navNum = 10;
   }
 

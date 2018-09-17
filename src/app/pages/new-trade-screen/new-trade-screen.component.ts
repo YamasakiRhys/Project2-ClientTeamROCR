@@ -67,6 +67,7 @@ export class NewTradeScreenComponent implements OnInit {
       this.router.navigate(['/loggedin/user']);
     });
   }
+  
   //Creates a name for the image file
   makePath() {
     var text = "";
@@ -85,16 +86,13 @@ export class NewTradeScreenComponent implements OnInit {
   
   //uploads the given image file to S3bucket
   uploadImage(img) {
-    var s3 = new AWS.S3({apiVersion: '2006-03-01'})
-    const bucket = new AWS.S3(
+    const bucket = new S3(
       {
-        accessKeyId: environment.access_key_id,
-        secretAccessKey: environment.secret_access_key,
+        accessKeyId: '',
+        secretAccessKey: '',
         region: 'us-east-1'
       }
     );
-
-    console.log(bucket);
 
     const params = {
       Bucket: 'project-rocr',
@@ -117,7 +115,5 @@ export class NewTradeScreenComponent implements OnInit {
     this.search.setAllGenres();
     this.search.setAllGames();
     this.logged.navNum = 11;
-    console.log(environment.access_key_id);
-    console.log(environment.secret_access_key);
   }
 }
