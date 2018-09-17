@@ -1,4 +1,8 @@
 version: 0.1
+env:
+   parameter-store:
+      access_key_id: /codebuild/access_key_id
+      secret_access_key: /codebuild/secret_access_key
 phases:
    install:
        commands:

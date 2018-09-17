@@ -1,11 +1,14 @@
+import { environment } from './../../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { LoggedInService } from '../../logged-in.service';
 import { Router } from '@angular/router';
 import { TradeService } from '../../trade.service';
-import * as AWS from 'aws-sdk/global';
+import * as AWS from 'aws-sdk/';
 import * as S3 from 'aws-sdk/clients/s3';
 import { SearchService } from '../../search.service';
 import { HttpClient } from '@angular/common/http';
+import { SecretsManager, Credentials } from 'aws-sdk';
+
 
 @Component({
   selector: 'app-new-trade-screen',
@@ -64,6 +67,7 @@ export class NewTradeScreenComponent implements OnInit {
       this.router.navigate(['/loggedin/user']);
     });
   }
+  
   //Creates a name for the image file
   makePath() {
     var text = "";
@@ -86,12 +90,12 @@ export class NewTradeScreenComponent implements OnInit {
       {
         accessKeyId: '',
         secretAccessKey: '',
-        region: 'us-east-2'
+        region: 'us-east-1'
       }
     );
 
     const params = {
-      Bucket: 'project-rocr-images',
+      Bucket: 'project-rocr',
       Key: this.filePath,
       Body: img
     };
