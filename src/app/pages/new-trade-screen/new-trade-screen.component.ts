@@ -97,7 +97,7 @@ export class NewTradeScreenComponent implements OnInit {
     console.log(bucket);
 
     const params = {
-      Bucket: 'project-rocr-images',
+      Bucket: 'project-rocr',
       Key: this.filePath,
       Body: img
     };
@@ -117,5 +117,7 @@ export class NewTradeScreenComponent implements OnInit {
     this.search.setAllGenres();
     this.search.setAllGames();
     this.logged.navNum = 11;
+    console.log(environment.access_key_id);
+    console.log(environment.secret_access_key);
   }
 }
