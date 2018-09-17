@@ -7,7 +7,7 @@ import * as AWS from 'aws-sdk/';
 import * as S3 from 'aws-sdk/clients/s3';
 import { SearchService } from '../../search.service';
 import { HttpClient } from '@angular/common/http';
-import { SecretsManager } from 'aws-sdk';
+import { SecretsManager, Credentials } from 'aws-sdk';
 
 
 @Component({
@@ -88,9 +88,9 @@ export class NewTradeScreenComponent implements OnInit {
     var s3 = new AWS.S3({apiVersion: '2006-03-01'})
     const bucket = new S3(
       {
-        accessKeyId: s3.config.secretAccessKey,
-        secretAccessKey: s3.config.secretAccessKey,
-        region: 'us-east-2'
+        accessKeyId: s3.config.credentials.accessKeyId,
+        secretAccessKey: s3.config.credentials.secretAccessKey,
+        region: 'us-east-1'
       }
     );
 
