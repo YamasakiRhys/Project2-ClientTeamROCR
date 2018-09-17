@@ -34,7 +34,7 @@ export class MyTradesScreenComponent implements OnInit {
     this.router.navigate(['/loggedin/user']);
   }
 
-  //When the age loads, update the trades
+  //When the page loads, update the requests and trades
   ngOnInit() {
     this.logged.navNum = 11;
     this.myOpenTrades = [];
@@ -53,7 +53,7 @@ export class MyTradesScreenComponent implements OnInit {
     for (i = 0; i < pairs.length; i++) {
       if (pairs[i].statusId == 2 && pairs[i].givenOffer.account.userId == this.logged.getUserId()) {
         this.myPendingTrades.push(pairs[i]);
-      } else if (pairs[i].statusId == 1) {
+      } else if (pairs[i].statusId == 1 && pairs[i].givenOffer.account.userId == this.logged.getUserId()) {
         this.myApprovedTrades.push(pairs[i]);
       }
     }

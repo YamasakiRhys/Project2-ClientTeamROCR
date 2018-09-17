@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IfStmt } from '../../node_modules/@angular/compiler';
 import { HttpClient } from '@angular/common/http';
+import { LoggedInService } from './logged-in.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class SearchService {
   allStates = [];
   allCities = [];
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, public logged: LoggedInService) { }
 
   //gets all genres from the DB and sets them
   setAllGenres(){
@@ -22,7 +23,7 @@ export class SearchService {
       this.allGenres = x;
     })
   }
-
+  //get all location information and store them in arrays
   setAllLocations(){
     this.httpClient.get<String[]>('http://ec2-52-15-53-206.us-east-2.compute.amazonaws.com:8080/country').subscribe(x => {
       this.allCountries = x;
@@ -48,7 +49,7 @@ export class SearchService {
     //first filter out the trades that are not open
     var filtTrades = [];
     for (var i = 0; i < trades.length; i++) {
-      if(trades[i].status.statusId == 3){
+      if(trades[i].status.statusId == 3 && trades[i].account.userId != this.logged.getUserId()){
         filtTrades.push(trades[i]);
       }
     }

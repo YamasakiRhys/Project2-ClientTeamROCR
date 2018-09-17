@@ -34,7 +34,7 @@
     <h2>Game Information</h2>
     <h3>Game</h3>
     <select id="genreselect" (change)="selectedGame($event)" >
-      <option selected value="none" disabled>select a genre</option>
+      <option selected value="none" disabled>select a game</option>
       <option *ngFor='let game of this.search.allGames' value='{{game.gameId}}'>{{game.title}}</option>
     </select>
     <br>

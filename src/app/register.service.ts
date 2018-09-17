@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { LoggedInService } from './logged-in.service';
 import { LoginService } from './login.service';
 import { HttpClient } from '@angular/common/http';
-import { User } from './models/user';
 
 
 @Injectable({

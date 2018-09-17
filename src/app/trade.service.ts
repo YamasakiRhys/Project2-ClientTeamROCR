@@ -18,24 +18,26 @@ export class TradeService {
 
   constructor(private logged: LoggedInService, private httpClient: HttpClient, private router: Router) { }
 
-  //get all trades from the DB and set them
+  //get all requests from the DB and set them
   setRequests() {
     return this.httpClient.get<Trade[]>('http://ec2-52-15-53-206.us-east-2.compute.amazonaws.com:8080/requests').subscribe(x => {
       this.trades = x;
+      console.log("requests");
       console.log(this.trades);
     });
   }
-
+  //get all trades from DB and set them
   setTrades() {
     this.httpClient.get('http://ec2-52-15-53-206.us-east-2.compute.amazonaws.com:8080/trade').subscribe(x => {
       this.pairs = x;
+      console.log("trades");
       console.log(this.pairs);
       if (!this.logged.getUserId) {
         this.router.navigate(['/loggedin/user']);
       }
     })
   }
-  //gets a list of genres from all the trades and filters out duplicates
+  //gets a list of genres from all the trades and filters out duplicates and anything trades that are not open
   getGenres() {
     var genres = [];
     var isDupe = false;
@@ -67,8 +69,6 @@ export class TradeService {
         }
       }
     }
-    console.log(requestId);
-    console.log(request);
     return this.httpClient.put('http://ec2-52-15-53-206.us-east-2.compute.amazonaws.com:8080/requests/closed/' + requestId, request).subscribe(x => {
       this.setRequests();
       this.router.navigate(['/loggedin/user'])
@@ -87,7 +87,7 @@ export class TradeService {
     return userTrades;
   }
 
-  //creates a request
+  //creates a trade
   createTrade() {
     var request1, request2;
     for (var i = 0; i < this.trades.length; i++) {
@@ -106,6 +106,7 @@ export class TradeService {
         }
       }
     }
+    //update status to the two requests in the trade so they dont appear in searches
     this.httpClient.put('http://ec2-52-15-53-206.us-east-2.compute.amazonaws.com:8080/requests/pending/' + this.offer1Id, request1).subscribe(x => { });
     this.httpClient.put('http://ec2-52-15-53-206.us-east-2.compute.amazonaws.com:8080/requests/pending/' + this.offer2Id, request2).subscribe(x => { });
 
@@ -120,7 +121,7 @@ export class TradeService {
       this.router.navigate(['/loggedin/user']);
     });
   }
-
+  //when a trade is declined or when the creater of a trade changes their mind and cancles it
   takeBack(tradeId) {
     for (var i = 0; i < this.pairs.length; i++) {
       if (this.pairs[i].tradeId == tradeId) {
@@ -152,7 +153,7 @@ export class TradeService {
     });
   }
 
-  //gets all trades
+  //gets all pending trades that are dirrected to the logged in user
   getPairs() {
     var userPairs = [];
     for (var i = 0; i < this.pairs.length; i++) {
@@ -163,12 +164,14 @@ export class TradeService {
     return userPairs;
   }
 
-  //changes status on bothrequests in the trade depending on it was accepted/declined
+  //changes status on both requests in the trade depending on if it was accepted/declined
   handleTrade(pairId, statusId) {
+    //if it was declined
     if (statusId == 4) {
       this.takeBack(pairId);
+      return;
     }
-
+    //if it was accepted
     for (var i = 0; i < this.pairs.length; i++) {
       if (this.pairs[i].tradeId == pairId) {
         this.offer1Id = this.pairs[i].givenOffer.requestId

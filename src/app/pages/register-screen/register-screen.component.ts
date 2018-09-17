@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoggedInService } from '../../logged-in.service';
 import { LoginService } from '../../login.service';
-import { Router } from '@angular/router';
 import { SearchService } from '../../search.service';
 import { User } from '../../models/user';
 import { RegisterService } from '../../register.service';
@@ -13,7 +12,7 @@ import { RegisterService } from '../../register.service';
 })
 export class RegisterScreenComponent implements OnInit {
 
-  constructor(private logged: LoggedInService, private reg: RegisterService, private login: LoginService, private router: Router, private search: SearchService) { }
+  constructor(private logged: LoggedInService, private reg: RegisterService, private login: LoginService, private search: SearchService) { }
 
   selectedCountry;
   selectedState;
@@ -33,6 +32,10 @@ export class RegisterScreenComponent implements OnInit {
 
   //creates a new user
   register(rUsername, rPassword, rFname, rLname, rEmail, rStreet, rPhone) {
+    if(!rUsername || !rPassword || !rFname || !rLname || !rEmail || !rStreet || !rPhone || !this.selectedCity || !this.selectedState || !this.selectedCountry){
+      alert('Please fill in all boxes');
+      return;
+    }
     //check is username is available
     for (var i = 0; i < this.login.users.length; i++) {
       if (rUsername == this.login.users[i].username) {
