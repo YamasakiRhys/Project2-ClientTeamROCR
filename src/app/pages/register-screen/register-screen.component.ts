@@ -12,7 +12,7 @@ import { RegisterService } from '../../register.service';
 })
 export class RegisterScreenComponent implements OnInit {
 
-  constructor(private logged: LoggedInService, private reg: RegisterService, private login: LoginService, private search: SearchService) { }
+  constructor(private logged: LoggedInService, private reg: RegisterService, private login: LoginService, public search: SearchService) { }
 
   selectedCountry;
   selectedState;
