@@ -88,8 +88,8 @@ export class NewTradeScreenComponent implements OnInit {
     var s3 = new AWS.S3({apiVersion: '2006-03-01'})
     const bucket = new AWS.S3(
       {
-        accessKeyId: environment.access_key_id,
-        secretAccessKey: environment.secret_access_key,
+        accessKeyId: '',
+        secretAccessKey: '',
         region: 'us-east-1'
       }
     );
@@ -117,7 +117,5 @@ export class NewTradeScreenComponent implements OnInit {
     this.search.setAllGenres();
     this.search.setAllGames();
     this.logged.navNum = 11;
-    console.log(environment.access_key_id);
-    console.log(environment.secret_access_key);
   }
 }
