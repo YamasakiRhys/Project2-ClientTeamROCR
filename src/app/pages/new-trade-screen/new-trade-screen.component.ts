@@ -35,16 +35,14 @@ export class NewTradeScreenComponent implements OnInit {
     this.game = event.target.value;
   }
   //creates a new game and adds it to the DB
-  makeGame(rTitle, rPlot) {
-    if (!rTitle || !rPlot || !this.selectedFile || !this.genre) {
+  makeGame(rTitle, rPlot, rImage) {
+    if (!rTitle || !rPlot || !rImage || !this.genre) {
       alert("Please fill in all boxes and upload an image");
       return;
     }
-    this.makePath();
-    this.uploadImage(this.selectedFile);
     var game = {
       title: rTitle,
-      image: "https://s3.us-east-2.amazonaws.com/project-rocr-images/" + this.filePath,
+      image: rImage,
       plot: rPlot,
       genreId: this.genre
     }

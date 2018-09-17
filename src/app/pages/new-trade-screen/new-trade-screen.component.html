@@ -17,9 +17,9 @@
       <h3>Image</h3>
       <label id="fileInput">
         Enter Image File
-        <input type="file" (change)="fileSelected($event)">
+        <input type="text" #rImage placeholder="image URL">
       </label>
-      <button id="submitGame" (click)="makeGame(rTitle.value,rPlot.value)" onclick="document.getElementById('gamemod').style.display='none'">Submit game</button>
+      <button id="submitGame" (click)="makeGame(rTitle.value,rPlot.value, rImage.value)" onclick="document.getElementById('gamemod').style.display='none'">Submit game</button>
     </div>
   </div>
 </div>
