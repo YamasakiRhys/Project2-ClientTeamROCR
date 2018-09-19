@@ -21,12 +21,10 @@ export class HandleOffersScreenComponent implements OnInit {
 
   accepted(pairId){
     this.tradeServ.handleTrade(pairId, 1);
-    this.router.navigate(['/loggedin/user']);
   }
 
   declined(pairId){
     this.tradeServ.handleTrade(pairId, 4);
-    this.router.navigate(['/loggedin/user']);
   }
 
   ngOnInit() {

@@ -15,6 +15,7 @@ export class TradeService {
   offer1Id;
   offer2Id;
   makingTrade = false;
+  decline = false;
 
   constructor(private logged: LoggedInService, private httpClient: HttpClient, private router: Router) { }
 
@@ -24,6 +25,10 @@ export class TradeService {
       this.trades = x;
       console.log("requests");
       console.log(this.trades);
+      if(this.decline){
+        this.router.navigate(['/loggedin/user']);
+        this.decline = false;
+      }
     });
   }
   //get all trades from DB and set them
@@ -67,6 +72,7 @@ export class TradeService {
           gameId: this.trades[i].games.gameId,
           description: this.trades[i].description
         }
+        this.trades.splice(i,1);
       }
     }
     return this.httpClient.put('http://ec2-52-15-53-206.us-east-2.compute.amazonaws.com:8080/requests/closed/' + requestId, request).subscribe(x => {
@@ -97,6 +103,7 @@ export class TradeService {
           gameId: this.trades[i].games.gameId,
           description: this.trades[i].description
         }
+        this.trades.splice(i,1);
       }
       if (this.trades[i].requestId == this.offer2Id) {
         request2 = {
@@ -137,9 +144,11 @@ export class TradeService {
           gameId: this.pairs[i].requestOffer.games.gameId,
           description: this.pairs[i].requestOffer.description
         }
+        this.pairs.splice(i,1);
       }
     }
-    const trade =
+    this.decline = true;
+    const trade = 
     {
       requestedOfferId: this.offer1Id,
       givenOfferId: this.offer2Id
@@ -149,7 +158,6 @@ export class TradeService {
     this.httpClient.put('http://ec2-52-15-53-206.us-east-2.compute.amazonaws.com:8080/trade/closed/' + tradeId, trade).subscribe(x => {
       this.setRequests();
       this.setTrades();
-      this.router.navigate(['/loggedin/user']);
     });
   }
 
@@ -186,6 +194,7 @@ export class TradeService {
           gameId: this.pairs[i].requestOffer.games.gameId,
           description: this.pairs[i].requestOffer.description
         }
+        this.pairs.splice(i,1);
       }
     }
     const trade =
