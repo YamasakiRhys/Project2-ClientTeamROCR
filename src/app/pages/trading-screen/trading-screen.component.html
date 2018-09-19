@@ -30,7 +30,7 @@
               <h4>Plot: {{trade.games.plot}}</h4>
               <br>
               <h6>Trade created by {{trade.account.username}}</h6>
-              <h6 id="down">Prefered trade genre: {{trade.description}}</h6>
+              <h6 id="down">{{trade.description}}</h6>
               <button id="offerButton" (click)="makeOffer(trade.requestId)">Offer this</button>
               <img src={{trade.games.image}} class="gameimg">
           </div>
